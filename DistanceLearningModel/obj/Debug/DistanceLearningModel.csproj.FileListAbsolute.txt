@@ -1,0 +1,5 @@
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\bin\Debug\DistanceLearningModel.dll
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\bin\Debug\DistanceLearningModel.pdb
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\obj\Debug\DistanceLearningModel.csprojResolveAssemblyReference.cache
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\obj\Debug\DistanceLearningModel.dll
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\obj\Debug\DistanceLearningModel.pdb

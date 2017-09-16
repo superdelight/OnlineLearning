@@ -1,0 +1,527 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9D711506-59FE-4717-A8FE-CA98A39FE6D4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DistanceLearningCore</RootNamespace>
+    <AssemblyName>DistanceLearningCore</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\..\..\..\Storage\Junks\PortalLib\PortalLib\bin\Debug\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Model\Administration\Admin.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Admin.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\Admin.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\Admin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Admin.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\Admission.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\AdmissionProgrammeAdmin.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\ApplicantAdmin.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\ApplicantProgress.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\ApplicationAdmin.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\Award.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\Cours.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\CourseRole.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\Department.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\Faculty.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\Level.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\PersonAdm.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\ProgrammeAdmin.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\ProgrammeLevelAdmin.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\School.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\Semester.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\Session.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\SessionSem.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\SMTPProxy.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\Step.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\Student.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\StudentCategory.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\StudentCatLevelxxx.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\StudentLevel.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Administration\Subject.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\AcceptancePayment.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\ApplicantPayment.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\ApplicationPay.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\ChildPayment.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\Faculty.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\FacultyByLevel.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\FacultyByStudentCat.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\FacultyPayment.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\GeneralByFaculty.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\GeneralByLevel.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\GeneralByStudCat.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\GeneralPayment.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\GenralAll.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\Invoice.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\InvoicePayment.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\OtherPayment.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\Pay.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pay.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\Pay.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\Pay.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pay.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\PayCategory.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\Payment.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\PaymentConfiguration.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\PaymentItem.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\SchoolPayment.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\Session.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\SessionPayment.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\SessionSem.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\SessionSemPayment.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\StudentLevel.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\StudentPayment.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Payment\Studentss.cs">
+      <DependentUpon>Pay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StaffModel\Department.cs">
+      <DependentUpon>StaffModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StaffModel\Designation.cs">
+      <DependentUpon>StaffModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StaffModel\Person.cs">
+      <DependentUpon>StaffModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StaffModel\Staff.cs">
+      <DependentUpon>StaffModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StaffModel\StaffModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StaffModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StaffModel\StaffModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StaffModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StaffModel\StaffModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StaffModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\AdmissionProcessing.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\AdmissionProgramme.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\Applicant.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\ApplicantProgressxx.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\Application.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\Awardxx.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\Coursexx.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\Curriculum.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\Departmentxx.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\Employmentxx.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\ExaminationSubject.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\FacultyReq.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\Facultyxxx.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\Person.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\Programme.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\ProgrammeLevel.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\ProgrammeReq.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\Requirement.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\SchoolReqxsx.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\SessionSem.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\Stepxx.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\StudentCategoryxxx.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\StudentCatLevel.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\StudentDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\StudentDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\StudentDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\StudentDocumentxcx.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\StudentExamination.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\StudentLevel.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\StudentRegistrationxx.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\StudentSchoolxx.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\StudentModel\Studentxx.cs">
+      <DependentUpon>StudentDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ExamSubjectRepository.cs" />
+    <Compile Include="Repository\StudentRegistrationRepository.cs" />
+    <Compile Include="Repository\AdmissionProcessingRepository.cs" />
+    <Compile Include="Repository\StudentSchoolRepository.cs" />
+    <Compile Include="Repository\StudentEmploymentRepository.cs" />
+    <Compile Include="Repository\StudentExaminationRepository.cs" />
+    <Compile Include="Repository\ApplicationRepository.cs" />
+    <Compile Include="Repository\ApplicantPaymentRepository.cs" />
+    <Compile Include="Repository\CurriculumRepositoy.cs" />
+    <Compile Include="Repository\ProgrammeReqRepository.cs" />
+    <Compile Include="Repository\InvoicePaymentRepository.cs" />
+    <Compile Include="Repository\InvoiceRepository.cs" />
+    <Compile Include="Repository\GeneralByFacultyRepository.cs" />
+    <Compile Include="Repository\GeneralByStudentCatRepository.cs" />
+    <Compile Include="Repository\GeneralByLevelRepository.cs" />
+    <Compile Include="Repository\GeneraAllRepository.cs" />
+    <Compile Include="Repository\PayCategoryRepository.cs" />
+    <Compile Include="Repository\ChildPayRepository.cs" />
+    <Compile Include="Repository\PaymentItemRepository.cs" />
+    <Compile Include="Repository\SessionSemPaymentRepository.cs" />
+    <Compile Include="Repository\SessionPaymentRepository.cs" />
+    <Compile Include="Repository\PaymentRepository.cs" />
+    <Compile Include="Repository\OtherPaymentRepository.cs" />
+    <Compile Include="Repository\SchoolPayRepository.cs" />
+    <Compile Include="Repository\AdmissionProgrammeRepository.cs" />
+    <Compile Include="Repository\ApplicantRepository.cs" />
+    <Compile Include="Repository\CourseRoleRepository.cs" />
+    <Compile Include="Repository\AdmissionRepository.cs" />
+    <Compile Include="Repository\AcceptanceRepository.cs" />
+    <Compile Include="Repository\SemesterRepository.cs" />
+    <Compile Include="Repository\SessionSemRepository.cs" />
+    <Compile Include="Repository\SMTPProxyRepository.cs" />
+    <Compile Include="Repository\StepRepository.cs" />
+    <Compile Include="Repository\StudentCategoryRepository.cs" />
+    <Compile Include="Repository\SessionRepository.cs" />
+    <Compile Include="Repository\LevelRepository.cs" />
+    <Compile Include="Repository\StudentCatLevelRepository.cs" />
+    <Compile Include="Repository\ProgrammeLevelRepository.cs" />
+    <Compile Include="Repository\StudentLevelRepository.cs" />
+    <Compile Include="Repository\ApplicantProgessRepository.cs" />
+    <Compile Include="Repository\SubjectRepository.cs" />
+    <Compile Include="Repository\ProgrammeRepository.cs" />
+    <Compile Include="Repository\CourseRepository.cs" />
+    <Compile Include="Repository\SchoolRepository.cs" />
+    <Compile Include="Repository\AwardRepository.cs" />
+    <Compile Include="Repository\FacultyRepository.cs" />
+    <Compile Include="Repository\StudentRepository.cs" />
+    <Compile Include="Repository\PersonRepository.cs" />
+    <Compile Include="Repository\DepartmentRepository.cs" />
+    <Compile Include="Repository\DesignationRepository.cs" />
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Service\RegistrationService.cs" />
+    <Compile Include="Service\StudentService.cs" />
+    <Compile Include="UoW\ElearningAdminUoW.cs" />
+    <Compile Include="UoW\ElearningPaymentUoW.cs" />
+    <Compile Include="UoW\BoundedContextUoW.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Model\StaffModel\StaffModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StaffModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Model\Administration\Admin.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Admin.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\Administration\Admin.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Admin.edmx</DependentUpon>
+      <LastGenOutput>Admin.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model\Administration\Admin.edmx.diagram">
+      <DependentUpon>Admin.edmx</DependentUpon>
+    </None>
+    <None Include="Model\Administration\Admin.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Admin.edmx</DependentUpon>
+      <LastGenOutput>Admin.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="Model\Payment\Pay.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Pay.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\Payment\Pay.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Pay.edmx</DependentUpon>
+      <LastGenOutput>Pay.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model\Payment\Pay.edmx.diagram">
+      <DependentUpon>Pay.edmx</DependentUpon>
+    </None>
+    <None Include="Model\Payment\Pay.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Pay.edmx</DependentUpon>
+      <LastGenOutput>Pay.cs</LastGenOutput>
+    </None>
+    <None Include="Model\StaffModel\StaffModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StaffModel.edmx</DependentUpon>
+      <LastGenOutput>StaffModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model\StaffModel\StaffModel.edmx.diagram">
+      <DependentUpon>StaffModel.edmx</DependentUpon>
+    </None>
+    <None Include="Model\StaffModel\StaffModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StaffModel.edmx</DependentUpon>
+      <LastGenOutput>StaffModel.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="Model\StudentModel\StudentDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StudentDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\StudentModel\StudentDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StudentDB.edmx</DependentUpon>
+      <LastGenOutput>StudentDB.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model\StudentModel\StudentDB.edmx.diagram">
+      <DependentUpon>StudentDB.edmx</DependentUpon>
+    </None>
+    <None Include="Model\StudentModel\StudentDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StudentDB.edmx</DependentUpon>
+      <LastGenOutput>StudentDB.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DistanceLearningInfrastructure\DistanceLearningInfrastructure.csproj">
+      <Project>{085955d4-f640-4b37-bc93-7b13f673cd48}</Project>
+      <Name>DistanceLearningInfrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DistanceLearningModel\DistanceLearningDomain.csproj">
+      <Project>{ebdd1fb2-a905-4f2f-b45f-9ad9be865f08}</Project>
+      <Name>DistanceLearningDomain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

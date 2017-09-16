@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ElearningModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeptAcronymns" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeptName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FacId" Type="Int32" />
+    <Property Name="DeptCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_Department" FromRole="Department" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="Designation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <NavigationProperty Name="Staffs" Relationship="Self.FK_Staff_Designation" FromRole="Designation" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="Person" Abstract="true">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Othername" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MaidenName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="3" />
+    <Property Name="StateofOrigin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LoginID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PostalAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PlaceofBirth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LGA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MarritalStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HealthStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Religion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Signature" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsEmployed" Type="Boolean" />
+    <Property Name="IsFinished" Type="Boolean" />
+    <Property Name="IsSPT" Type="Boolean" />
+    <Property Name="IsDE" Type="Boolean" />
+    <Property Name="IsVerified" Type="Boolean" />
+    <Property Name="VerifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateVerified" Type="DateTime" Precision="3" />
+    <Property Name="IncompleteOLevel" Type="Boolean" />
+    <Property Name="NxtFullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NxtEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NxtPhoneNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NxtRelationship" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Staff" BaseType="ElearningModel.Person">
+    <Property Name="StaffNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DesginId" Type="Int32" />
+    <Property Name="DeptId" Type="Int32" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_Staff_Department" FromRole="Staff" ToRole="Department" />
+    <NavigationProperty Name="Designation" Relationship="Self.FK_Staff_Designation" FromRole="Staff" ToRole="Designation" />
+  </EntityType>
+  <Association Name="FK_Staff_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="DeptId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_Designation">
+    <End Role="Designation" Type="Self.Designation" Multiplicity="0..1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Designation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="DesginId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StaffContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Departments" EntityType="Self.Department" />
+    <EntitySet Name="Designations" EntityType="Self.Designation" />
+    <EntitySet Name="People" EntityType="Self.Person" />
+    <AssociationSet Name="FK_Staff_Department" Association="Self.FK_Staff_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Staff" EntitySet="People" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_Designation" Association="Self.FK_Staff_Designation">
+      <End Role="Designation" EntitySet="Designations" />
+      <End Role="Staff" EntitySet="People" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

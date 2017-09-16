@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="189a8ef5e6e74f2f995e115e1045e74d" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="ElearningModel1.AcceptancePayment" Width="1.5" PointX="11.375" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningModel1.Faculty" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningModel1.FacultyByLevel" Width="1.5" PointX="13.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningModel1.FacultyByStudentCat" Width="2.625" PointX="9.875" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningModel1.FacultyPayment" Width="1.5" PointX="7.625" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningModel1.GeneralPayment" Width="1.75" PointX="2.125" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningModel1.OtherPayment" Width="1.5" PointX="16.125" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningModel1.PayCategory" Width="1.5" PointX="8.375" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningModel1.Payment" Width="1.5" PointX="8.375" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningModel1.PaymentConfiguration" Width="1.5" PointX="8.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningModel1.PaymentItem" Width="1.5" PointX="7.875" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningModel1.SchoolPayment" Width="1.5" PointX="18.375" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningModel1.Session" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningModel1.SessionPayment" Width="1.5" PointX="1.625" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningModel1.SessionSem" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningModel1.SessionSemPayment" Width="2.125" PointX="4.375" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningModel1.StudentLevel" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningModel1.StudentPayment" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <AssociationConnector Association="ElearningModel1.FK_FacultyPayment_Faculty" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningModel1.FK_PaymentConfiguration_PayCategory" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="ElearningModel1.FK_PaymentItem_PaymentConfiguration" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="ElearningModel1.FK_SessionPayment_Session" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningModel1.FK_SessionSem_Session" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningModel1.FK_StudentLevel_Session" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningModel1.FK_SessionSemPayment_SessionSem" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningModel1.FK_StudentPayment_StudentLevel" ManuallyRouted="false" />
+        <InheritanceConnector EntityType="ElearningModel1.SessionPayment" ManuallyRouted="false" >
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="ElearningModel1.SessionSemPayment" />
+        <InheritanceConnector EntityType="ElearningModel1.FacultyPayment" />
+        <InheritanceConnector EntityType="ElearningModel1.GeneralPayment" />
+        <InheritanceConnector EntityType="ElearningModel1.AcceptancePayment" />
+        <InheritanceConnector EntityType="ElearningModel1.OtherPayment" />
+        <InheritanceConnector EntityType="ElearningModel1.SchoolPayment" />
+        <InheritanceConnector EntityType="ElearningModel1.FacultyByLevel" />
+        <InheritanceConnector EntityType="ElearningModel1.FacultyByStudentCat" />
+        <AssociationConnector Association="ElearningModel1.FK_PayCategory_Payment" />
+        <EntityTypeShape EntityType="ElearningModel1.ApplicationPay" Width="1.5" PointX="16.75" PointY="14" />
+        <InheritanceConnector EntityType="ElearningModel1.ApplicationPay" />
+        <EntityTypeShape EntityType="ElearningModel1.GeneralByFaculty" Width="1.5" PointX="4" PointY="18.125" />
+        <EntityTypeShape EntityType="ElearningModel1.GeneralByLevel" Width="1.5" PointX="11" PointY="16.125" />
+        <EntityTypeShape EntityType="ElearningModel1.GeneralByStudCat" Width="2.25" PointX="4" PointY="16.125" />
+        <EntityTypeShape EntityType="ElearningModel1.GenralAll" Width="1.5" PointX="13.25" PointY="16.125" />
+        <AssociationConnector Association="ElearningModel1.FK_GeneralByFaculty_Faculty" />
+        <InheritanceConnector EntityType="ElearningModel1.GeneralByStudCat" />
+        <InheritanceConnector EntityType="ElearningModel1.GeneralByLevel" />
+        <InheritanceConnector EntityType="ElearningModel1.GenralAll" />
+        <InheritanceConnector EntityType="ElearningModel1.GeneralByFaculty" ManuallyRouted="false" >
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="ElearningModel1.ApplicantPayment" Width="1.75" PointX="13.625" PointY="7.75" />
+        <InheritanceConnector EntityType="ElearningModel1.ApplicantPayment" />
+        <EntityTypeShape EntityType="ElearningModel1.ChildPayment" Width="1.5" PointX="10.625" PointY="4.75" />
+        <InheritanceConnector EntityType="ElearningModel1.ChildPayment" />
+        <AssociationConnector Association="ElearningModel1.FK_PaymentItem_ChildPaymentxx" />
+        <EntityTypeShape EntityType="ElearningModel1.Invoice" Width="1.5" PointX="13.75" PointY="2.75" />
+        <AssociationConnector Association="ElearningModel1.FK_Invoice_PaymentConfiguration" />
+        <AssociationConnector Association="ElearningModel1.FK_Invoice_SessionSem" />
+        <AssociationConnector Association="ElearningModel1.FK_Invoice_StudentLevel" />
+        <EntityTypeShape EntityType="ElearningModel1.InvoicePayment" Width="1.5" PointX="16" PointY="2.125" />
+        <AssociationConnector Association="ElearningModel1.FK_InvoicePayment_Invoice" />
+        <AssociationConnector Association="ElearningModel1.FK_InvoicePayment_SessionSem" />
+        <EntityTypeShape EntityType="ElearningModel1.Studentss" PointX="8.375" PointY="0.875" Width="1.5" />
+        <AssociationConnector Association="ElearningModel1.FK_StudentLevel_Student" />
+        <AssociationConnector Association="ElearningModel1.FK_InvoicePayment_PaymentConfiguration" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

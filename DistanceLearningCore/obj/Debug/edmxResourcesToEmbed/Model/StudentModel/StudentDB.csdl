@@ -1,0 +1,846 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StudentElearningModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Applicant" BaseType="StudentElearningModel.Person">
+    <Property Name="AdmissionId" Type="Int32" />
+    <Property Name="ApplicationNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="StudentExaminations" Relationship="Self.FK_StudentExaminations_Applicant" FromRole="Applicant" ToRole="StudentExaminations" />
+    <NavigationProperty Name="StudentSchools" Relationship="Self.FK_StudentSchools_Applicant" FromRole="Applicant" ToRole="StudentSchools" />
+    <NavigationProperty Name="Applications" Relationship="StudentElearningModel.FK_Application_Applicant" FromRole="Applicant" ToRole="Application" />
+    <NavigationProperty Name="ApplicantProgresses" Relationship="StudentElearningModel.FK_ApplicantProgress_Applicant" FromRole="Applicant" ToRole="ApplicantProgress" />
+    <NavigationProperty Name="Employments" Relationship="StudentElearningModel.FK_Employment_Applicant" FromRole="Applicant" ToRole="Employment" />
+  </EntityType>
+  <EntityType Name="Person" Abstract="true">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Othername" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MaidenName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="3" />
+    <Property Name="StateofOrigin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LoginID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PostalAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PlaceofBirth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LGA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MarritalStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HealthStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Religion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Signature" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsEmployed" Type="Boolean" />
+    <Property Name="IsFinished" Type="Boolean" />
+    <Property Name="IsSPT" Type="Boolean" />
+    <Property Name="IsDE" Type="Boolean" />
+    <Property Name="IsVerified" Type="Boolean" />
+    <Property Name="VerifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateVerified" Type="DateTime" Precision="3" />
+    <Property Name="IncompleteOLevel" Type="Boolean" />
+    <Property Name="NxtFullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NxtEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NxtPhoneNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NxtRelationship" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="StudentDocuments" Relationship="Self.FK_StudentDocument_Person" FromRole="Person" ToRole="StudentDocument" />
+  </EntityType>
+  <EntityType Name="Studentxx" BaseType="StudentElearningModel.Person">
+    <Property Name="MatricNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="StudentLevels" Relationship="Self.FK_StudentLevel_Student" FromRole="Student" ToRole="StudentLevel" />
+  </EntityType>
+  <EntityType Name="StudentCatLevel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StudCatId" Type="Int32" />
+    <Property Name="ProgLevId" Type="Int32" />
+    <NavigationProperty Name="StudentLevels" Relationship="Self.FK_StudentLevel_StudentCatLevel" FromRole="StudentCatLevel" ToRole="StudentLevel" />
+    <NavigationProperty Name="StudentCategory" Relationship="StudentElearningModel.FK_StudentCatLevel_StudentCategory" FromRole="StudentCatLevel" ToRole="StudentCategory" />
+    <NavigationProperty Name="ProgrammeLevel" Relationship="StudentElearningModel.FK_StudentCatLevel_ProgrammeLevel" FromRole="StudentCatLevel" ToRole="ProgrammeLevel" />
+  </EntityType>
+  <EntityType Name="StudentDocumentxcx">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocumentDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="PerId" Type="Int32" />
+    <NavigationProperty Name="Person" Relationship="Self.FK_StudentDocument_Person" FromRole="StudentDocument" ToRole="Person" />
+  </EntityType>
+  <EntityType Name="StudentExamination">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExamBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExamCentre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExamNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StudentId" Type="Int32" Nullable="false" />
+    <Property Name="ExamYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Applicant" Relationship="Self.FK_StudentExaminations_Applicant" FromRole="StudentExaminations" ToRole="Applicant" />
+    <Property Name="IsFirst" Type="Boolean" />
+    <NavigationProperty Name="ExaminationSubjects" Relationship="StudentElearningModel.FK_ExaminationSubject_StudentExaminations" FromRole="StudentExamination" ToRole="ExaminationSubject" />
+    <Property Name="VerificationComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsVerified" Type="Boolean" />
+    <Property Name="VerificationDate" Type="DateTime" Precision="3" />
+    <Property Name="VerifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StudentLevel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SessId" Type="Int32" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="StudLevelId" Type="Int32" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_StudentLevel_Student" FromRole="StudentLevel" ToRole="Student" />
+    <NavigationProperty Name="StudentCatLevel" Relationship="Self.FK_StudentLevel_StudentCatLevel" FromRole="StudentLevel" ToRole="StudentCatLevel" />
+    <NavigationProperty Name="StudentRegistrations" Relationship="Self.FK_StudentRegistration_StudentLevel" FromRole="StudentLevel" ToRole="StudentRegistration" />
+  </EntityType>
+  <EntityType Name="StudentRegistrationxx">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseId" Type="Int32" />
+    <Property Name="StdId" Type="Int32" />
+    <Property Name="RegDate" Type="DateTime" Precision="3" />
+    <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SessId" Type="Int32" />
+    <NavigationProperty Name="StudentLevel" Relationship="Self.FK_StudentRegistration_StudentLevel" FromRole="StudentRegistration" ToRole="StudentLevel" />
+    <NavigationProperty Name="SessionSem" Relationship="StudentElearningModel.FK_StudentRegistration_SessionSem" FromRole="StudentRegistration" ToRole="SessionSem" />
+    <NavigationProperty Name="Curriculum" Relationship="StudentElearningModel.FK_StudentRegistration_Curriculum" FromRole="StudentRegistration" ToRole="Curriculum" />
+  </EntityType>
+  <EntityType Name="StudentSchoolxx">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Course" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="From" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="To" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StudentId" Type="Int32" Nullable="false" />
+    <Property Name="Qualification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CGPA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Applicant" Relationship="Self.FK_StudentSchools_Applicant" FromRole="StudentSchools" ToRole="Applicant" />
+  </EntityType>
+  <Association Name="FK_StudentExaminations_Applicant">
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="1" />
+    <End Role="StudentExaminations" Type="Self.StudentExamination" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentExaminations">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentSchools_Applicant">
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="1" />
+    <End Role="StudentSchools" Type="StudentElearningModel.StudentSchoolxx" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentSchools">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentDocument_Person">
+    <End Role="Person" Type="Self.Person" Multiplicity="0..1" />
+    <End Role="StudentDocument" Type="StudentElearningModel.StudentDocumentxcx" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentDocument">
+        <PropertyRef Name="PerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentLevel_Student">
+    <End Role="Student" Type="StudentElearningModel.Studentxx" Multiplicity="0..1" />
+    <End Role="StudentLevel" Type="Self.StudentLevel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentLevel">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentLevel_StudentCatLevel">
+    <End Role="StudentCatLevel" Type="Self.StudentCatLevel" Multiplicity="0..1" />
+    <End Role="StudentLevel" Type="Self.StudentLevel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentCatLevel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentLevel">
+        <PropertyRef Name="StudLevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentRegistration_StudentLevel">
+    <End Role="StudentLevel" Type="Self.StudentLevel" Multiplicity="0..1" />
+    <End Role="StudentRegistration" Type="StudentElearningModel.StudentRegistrationxx" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentLevel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentRegistration">
+        <PropertyRef Name="StdId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StudentElearningEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="People" EntityType="Self.Person" />
+    <EntitySet Name="StudentCatLevels" EntityType="Self.StudentCatLevel" />
+    <EntitySet Name="StudentDocumentxcxes" EntityType="StudentElearningModel.StudentDocumentxcx" />
+    <EntitySet Name="StudentExaminations" EntityType="Self.StudentExamination" />
+    <EntitySet Name="StudentLevels" EntityType="Self.StudentLevel" />
+    <EntitySet Name="StudentRegistrationxxes" EntityType="StudentElearningModel.StudentRegistrationxx" />
+    <EntitySet Name="StudentSchoolxxes" EntityType="StudentElearningModel.StudentSchoolxx" />
+    <AssociationSet Name="FK_StudentExaminations_Applicant" Association="Self.FK_StudentExaminations_Applicant">
+      <End Role="Applicant" EntitySet="People" />
+      <End Role="StudentExaminations" EntitySet="StudentExaminations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentSchools_Applicant" Association="Self.FK_StudentSchools_Applicant">
+      <End Role="Applicant" EntitySet="People" />
+      <End Role="StudentSchools" EntitySet="StudentSchoolxxes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentDocument_Person" Association="Self.FK_StudentDocument_Person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="StudentDocument" EntitySet="StudentDocumentxcxes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentLevel_Student" Association="Self.FK_StudentLevel_Student">
+      <End Role="Student" EntitySet="People" />
+      <End Role="StudentLevel" EntitySet="StudentLevels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentLevel_StudentCatLevel" Association="Self.FK_StudentLevel_StudentCatLevel">
+      <End Role="StudentCatLevel" EntitySet="StudentCatLevels" />
+      <End Role="StudentLevel" EntitySet="StudentLevels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentRegistration_StudentLevel" Association="Self.FK_StudentRegistration_StudentLevel">
+      <End Role="StudentLevel" EntitySet="StudentLevels" />
+      <End Role="StudentRegistration" EntitySet="StudentRegistrationxxes" />
+    </AssociationSet>
+    <EntitySet Name="SessionSems" EntityType="StudentElearningModel.SessionSem" />
+    <AssociationSet Name="FK_StudentRegistration_SessionSem" Association="StudentElearningModel.FK_StudentRegistration_SessionSem">
+      <End Role="SessionSem" EntitySet="SessionSems" />
+      <End Role="StudentRegistration" EntitySet="StudentRegistrationxxes" />
+    </AssociationSet>
+    <EntitySet Name="Curricula" EntityType="StudentElearningModel.Curriculum" />
+    <AssociationSet Name="FK_Curriculum_Curriculum" Association="StudentElearningModel.FK_Curriculum_Curriculum">
+      <End Role="Curriculum" EntitySet="Curricula" />
+      <End Role="Curriculum1" EntitySet="Curricula" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentRegistration_Curriculum" Association="StudentElearningModel.FK_StudentRegistration_Curriculum">
+      <End Role="Curriculum" EntitySet="Curricula" />
+      <End Role="StudentRegistration" EntitySet="StudentRegistrationxxes" />
+    </AssociationSet>
+    <EntitySet Name="AdmissionProcessings" EntityType="StudentElearningModel.AdmissionProcessing" />
+    <EntitySet Name="Applications" EntityType="StudentElearningModel.Application" />
+    <AssociationSet Name="FK_AdmissionProcessing_Application" Association="StudentElearningModel.FK_AdmissionProcessing_Application">
+      <End Role="Application" EntitySet="Applications" />
+      <End Role="AdmissionProcessing" EntitySet="AdmissionProcessings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_Applicant" Association="StudentElearningModel.FK_Application_Applicant">
+      <End Role="Applicant" EntitySet="People" />
+      <End Role="Application" EntitySet="Applications" />
+    </AssociationSet>
+    <EntitySet Name="ApplicantProgressxxes" EntityType="StudentElearningModel.ApplicantProgressxx" />
+    <AssociationSet Name="FK_ApplicantProgress_Applicant" Association="StudentElearningModel.FK_ApplicantProgress_Applicant">
+      <End Role="Applicant" EntitySet="People" />
+      <End Role="ApplicantProgress" EntitySet="ApplicantProgressxxes" />
+    </AssociationSet>
+    <EntitySet Name="StudentCategoryxxxes" EntityType="StudentElearningModel.StudentCategoryxxx" />
+    <AssociationSet Name="FK_StudentCatLevel_StudentCategory" Association="StudentElearningModel.FK_StudentCatLevel_StudentCategory">
+      <End Role="StudentCategory" EntitySet="StudentCategoryxxxes" />
+      <End Role="StudentCatLevel" EntitySet="StudentCatLevels" />
+    </AssociationSet>
+    <EntitySet Name="Requirements" EntityType="StudentElearningModel.Requirement" />
+    <AssociationSet Name="FK_Curriculum_Requirement" Association="StudentElearningModel.FK_Curriculum_Requirement">
+      <End Role="Requirement" EntitySet="Requirements" />
+      <End Role="Curriculum" EntitySet="Curricula" />
+    </AssociationSet>
+    <EntitySet Name="Awardxxes" EntityType="StudentElearningModel.Awardxx" />
+    <EntitySet Name="Coursexxes" EntityType="StudentElearningModel.Coursexx" />
+    <AssociationSet Name="FK_Curriculum_Courses" Association="StudentElearningModel.FK_Curriculum_Courses">
+      <End Role="Cours" EntitySet="Coursexxes" />
+      <End Role="Curriculum" EntitySet="Curricula" />
+    </AssociationSet>
+    <EntitySet Name="Departmentxxes" EntityType="StudentElearningModel.Departmentxx" />
+    <AssociationSet Name="FK_Courses_Department" Association="StudentElearningModel.FK_Courses_Department">
+      <End Role="Department" EntitySet="Departmentxxes" />
+      <End Role="Cours" EntitySet="Coursexxes" />
+    </AssociationSet>
+    <EntitySet Name="Stepxxes" EntityType="StudentElearningModel.Stepxx" />
+    <AssociationSet Name="FK_ApplicantProgress_Steps" Association="StudentElearningModel.FK_ApplicantProgress_Steps">
+      <End Role="Step" EntitySet="Stepxxes" />
+      <End Role="ApplicantProgress" EntitySet="ApplicantProgressxxes" />
+    </AssociationSet>
+    <EntitySet Name="Facultyxxxes" EntityType="StudentElearningModel.Facultyxxx" />
+    <AssociationSet Name="FK_Department_Faculty" Association="StudentElearningModel.FK_Department_Faculty">
+      <End Role="Faculty" EntitySet="Facultyxxxes" />
+      <End Role="Departmentxx" EntitySet="Departmentxxes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacultyReq_Faculty" Association="StudentElearningModel.FK_FacultyReq_Faculty">
+      <End Role="Faculty" EntitySet="Facultyxxxes" />
+      <End Role="FacultyReq" EntitySet="Requirements" />
+    </AssociationSet>
+    <EntitySet Name="AdmissionProgrammes" EntityType="StudentElearningModel.AdmissionProgramme" />
+    <EntitySet Name="Programmes" EntityType="StudentElearningModel.Programme" />
+    <EntitySet Name="ProgrammeLevels" EntityType="StudentElearningModel.ProgrammeLevel" />
+    <AssociationSet Name="FK_AdmissionProgramme_ProgrammeLevel" Association="StudentElearningModel.FK_AdmissionProgramme_ProgrammeLevel">
+      <End Role="ProgrammeLevel" EntitySet="ProgrammeLevels" />
+      <End Role="AdmissionProgramme" EntitySet="AdmissionProgrammes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_AdmissionProgramme" Association="StudentElearningModel.FK_Application_AdmissionProgramme">
+      <End Role="AdmissionProgramme" EntitySet="AdmissionProgrammes" />
+      <End Role="Application" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Programme_Award" Association="StudentElearningModel.FK_Programme_Award">
+      <End Role="Awardxx" EntitySet="Awardxxes" />
+      <End Role="Programme" EntitySet="Programmes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Programme_Department" Association="StudentElearningModel.FK_Programme_Department">
+      <End Role="Departmentxx" EntitySet="Departmentxxes" />
+      <End Role="Programme" EntitySet="Programmes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProgrammeLevel_Programme" Association="StudentElearningModel.FK_ProgrammeLevel_Programme">
+      <End Role="Programme" EntitySet="Programmes" />
+      <End Role="ProgrammeLevel" EntitySet="ProgrammeLevels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProgrammeReq_ProgrammeLevel" Association="StudentElearningModel.FK_ProgrammeReq_ProgrammeLevel">
+      <End Role="ProgrammeLevel" EntitySet="ProgrammeLevels" />
+      <End Role="ProgrammeReq" EntitySet="Requirements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentCatLevel_ProgrammeLevel" Association="StudentElearningModel.FK_StudentCatLevel_ProgrammeLevel">
+      <End Role="ProgrammeLevel" EntitySet="ProgrammeLevels" />
+      <End Role="StudentCatLevel" EntitySet="StudentCatLevels" />
+    </AssociationSet>
+    <EntitySet Name="ExaminationSubjects" EntityType="StudentElearningModel.ExaminationSubject" />
+    <AssociationSet Name="FK_ExaminationSubject_StudentExaminations" Association="StudentElearningModel.FK_ExaminationSubject_StudentExaminations">
+      <End Role="StudentExamination" EntitySet="StudentExaminations" />
+      <End Role="ExaminationSubject" EntitySet="ExaminationSubjects" />
+    </AssociationSet>
+    <EntitySet Name="Employmentxxes" EntityType="StudentElearningModel.Employmentxx" />
+    <AssociationSet Name="FK_Employment_Applicant" Association="StudentElearningModel.FK_Employment_Applicant">
+      <End Role="Applicant" EntitySet="People" />
+      <End Role="Employment" EntitySet="Employmentxxes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="SessionSem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SemId" Type="Int32" />
+    <Property Name="SessId" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="IsOpen" Type="Boolean" />
+    <Property Name="DateClosed" Type="DateTime" Precision="3" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="ExtensionDays" Type="Int32" />
+    <Property Name="ClosingRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WeekCount" Type="Int32" />
+    <NavigationProperty Name="StudentRegistrations" Relationship="StudentElearningModel.FK_StudentRegistration_SessionSem" FromRole="SessionSem" ToRole="StudentRegistration" />
+  </EntityType>
+  <Association Name="FK_StudentRegistration_SessionSem">
+    <End Type="StudentElearningModel.SessionSem" Role="SessionSem" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.StudentRegistrationxx" Role="StudentRegistration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SessionSem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentRegistration">
+        <PropertyRef Name="SessId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Curriculum">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReqId" Type="Int32" />
+    <Property Name="Prequisite" Type="Int32" />
+    <NavigationProperty Name="Curriculum1" Relationship="StudentElearningModel.FK_Curriculum_Curriculum" FromRole="Curriculum" ToRole="Curriculum1" />
+    <NavigationProperty Name="Curriculum2" Relationship="StudentElearningModel.FK_Curriculum_Curriculum" FromRole="Curriculum1" ToRole="Curriculum" />
+    <NavigationProperty Name="StudentRegistrations" Relationship="StudentElearningModel.FK_StudentRegistration_Curriculum" FromRole="Curriculum" ToRole="StudentRegistration" />
+    <Property Name="CourseId" Type="Int32" />
+    <Property Name="Unit" Type="Int32" />
+    <Property Name="LH" Type="Int32" />
+    <Property Name="DateTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="PH" Type="Int32" />
+    <NavigationProperty Name="Requirement" Relationship="StudentElearningModel.FK_Curriculum_Requirement" FromRole="Curriculum" ToRole="Requirement" />
+    <NavigationProperty Name="Cours" Relationship="StudentElearningModel.FK_Curriculum_Courses" FromRole="Curriculum" ToRole="Cours" />
+  </EntityType>
+  <Association Name="FK_Curriculum_Curriculum">
+    <End Type="StudentElearningModel.Curriculum" Role="Curriculum" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.Curriculum" Role="Curriculum1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curriculum">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Curriculum1">
+        <PropertyRef Name="Prequisite" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentRegistration_Curriculum">
+    <End Type="StudentElearningModel.Curriculum" Role="Curriculum" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.StudentRegistrationxx" Role="StudentRegistration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curriculum">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentRegistration">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AdmissionProcessing">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateProcessed" Type="DateTime" Precision="3" />
+    <Property Name="ApplicationId" Type="Int32" />
+    <Property Name="ProcessedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsNotified" Type="Boolean" />
+    <Property Name="IsVerified" Type="Boolean" />
+    <Property Name="NotificationDate" Type="DateTime" Precision="3" />
+    <Property Name="VerificationDate" Type="DateTime" Precision="3" />
+    <Property Name="VerifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsAccepted" Type="Boolean" />
+    <Property Name="AcceptedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsActivated" Type="Boolean" />
+    <Property Name="PaymentReference" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Application" Relationship="StudentElearningModel.FK_AdmissionProcessing_Application" FromRole="AdmissionProcessing" ToRole="Application" />
+    <Property Name="HasPaidTution" Type="Boolean" />
+    <Property Name="SchoolFeeReference" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolPayDate" Type="DateTime" Precision="3" />
+    <Property Name="PaymentDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppId" Type="Int32" />
+    <Property Name="AdmProgID" Type="Int32" />
+    <Property Name="ApplicationDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AdmissionProcessings" Relationship="StudentElearningModel.FK_AdmissionProcessing_Application" FromRole="Application" ToRole="AdmissionProcessing" />
+    <NavigationProperty Name="Applicant" Relationship="StudentElearningModel.FK_Application_Applicant" FromRole="Application" ToRole="Applicant" />
+    <NavigationProperty Name="AdmissionProgramme" Relationship="StudentElearningModel.FK_Application_AdmissionProgramme" FromRole="Application" ToRole="AdmissionProgramme" />
+  </EntityType>
+  <Association Name="FK_AdmissionProcessing_Application">
+    <End Type="StudentElearningModel.Application" Role="Application" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.AdmissionProcessing" Role="AdmissionProcessing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdmissionProcessing">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_Applicant">
+    <End Type="StudentElearningModel.Applicant" Role="Applicant" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.Application" Role="Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="AppId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ApplicantProgressxx">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StepId" Type="Int32" />
+    <Property Name="AppId" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Applicant" Relationship="StudentElearningModel.FK_ApplicantProgress_Applicant" FromRole="ApplicantProgress" ToRole="Applicant" />
+    <NavigationProperty Name="Step" Relationship="StudentElearningModel.FK_ApplicantProgress_Steps" FromRole="ApplicantProgress" ToRole="Step" />
+  </EntityType>
+  <Association Name="FK_ApplicantProgress_Applicant">
+    <End Type="StudentElearningModel.Applicant" Role="Applicant" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.ApplicantProgressxx" Role="ApplicantProgress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ApplicantProgress">
+        <PropertyRef Name="AppId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="StudentCategoryxxx">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="StudentCatLevels" Relationship="StudentElearningModel.FK_StudentCatLevel_StudentCategory" FromRole="StudentCategory" ToRole="StudentCatLevel" />
+  </EntityType>
+  <Association Name="FK_StudentCatLevel_StudentCategory">
+    <End Type="StudentElearningModel.StudentCategoryxxx" Role="StudentCategory" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.StudentCatLevel" Role="StudentCatLevel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentCatLevel">
+        <PropertyRef Name="StudCatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ProgrammeReq" BaseType="StudentElearningModel.Requirement">
+    <Property Name="ProgId" Type="Int32" />
+    <NavigationProperty Name="ProgrammeLevel" Relationship="StudentElearningModel.FK_ProgrammeReq_ProgrammeLevel" FromRole="ProgrammeReq" ToRole="ProgrammeLevel" />
+  </EntityType>
+  <EntityType Name="Requirement" Abstract="true">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaxUnit" Type="Int32" />
+    <Property Name="SemId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsElective" Type="Boolean" />
+    <Property Name="DateTimeStamp" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Curricula" Relationship="StudentElearningModel.FK_Curriculum_Requirement" FromRole="Requirement" ToRole="Curriculum" />
+  </EntityType>
+  <EntityType Name="SchoolReqxsx" BaseType="StudentElearningModel.Requirement">
+    <Property Name="ReqDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Curriculum_Requirement">
+    <End Type="StudentElearningModel.Requirement" Role="Requirement" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.Curriculum" Role="Curriculum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Requirement">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Curriculum">
+        <PropertyRef Name="ReqId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FacultyReq" BaseType="StudentElearningModel.Requirement">
+    <Property Name="LevId" Type="Int32" />
+    <Property Name="FacId" Type="Int32" />
+    <NavigationProperty Name="Faculty" Relationship="StudentElearningModel.FK_FacultyReq_Faculty" FromRole="FacultyReq" ToRole="Faculty" />
+  </EntityType>
+  <EntityType Name="Awardxx">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AwardDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AwardAcronymns" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SchId" Type="Int32" />
+    <NavigationProperty Name="Programmes" Relationship="StudentElearningModel.FK_Programme_Award" FromRole="Awardxx" ToRole="Programme" />
+    <Property Name="Duration" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Coursexx">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CourseTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="deptId" Type="Int32" />
+    <NavigationProperty Name="Curricula" Relationship="StudentElearningModel.FK_Curriculum_Courses" FromRole="Cours" ToRole="Curriculum" />
+    <NavigationProperty Name="Department" Relationship="StudentElearningModel.FK_Courses_Department" FromRole="Cours" ToRole="Department" />
+  </EntityType>
+  <Association Name="FK_Curriculum_Courses">
+    <End Type="StudentElearningModel.Coursexx" Role="Cours" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.Curriculum" Role="Curriculum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Curriculum">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Departmentxx">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeptAcronymns" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeptName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FacId" Type="Int32" />
+    <Property Name="DeptCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Courses" Relationship="StudentElearningModel.FK_Courses_Department" FromRole="Department" ToRole="Cours" />
+    <NavigationProperty Name="Faculty" Relationship="StudentElearningModel.FK_Department_Faculty" FromRole="Departmentxx" ToRole="Faculty" />
+    <NavigationProperty Name="Programmes" Relationship="StudentElearningModel.FK_Programme_Department" FromRole="Departmentxx" ToRole="Programme" />
+  </EntityType>
+  <Association Name="FK_Courses_Department">
+    <End Type="StudentElearningModel.Departmentxx" Role="Department" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.Coursexx" Role="Cours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cours">
+        <PropertyRef Name="deptId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Stepxx">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ApplicantProgresses" Relationship="StudentElearningModel.FK_ApplicantProgress_Steps" FromRole="Step" ToRole="ApplicantProgress" />
+  </EntityType>
+  <Association Name="FK_ApplicantProgress_Steps">
+    <End Type="StudentElearningModel.Stepxx" Role="Step" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.ApplicantProgressxx" Role="ApplicantProgress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Step">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ApplicantProgress">
+        <PropertyRef Name="StepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Facultyxxx">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FacultyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FacultyAcronymns" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SchId" Type="Int32" />
+    <NavigationProperty Name="Departments" Relationship="StudentElearningModel.FK_Department_Faculty" FromRole="Faculty" ToRole="Departmentxx" />
+    <NavigationProperty Name="FacultyReqs" Relationship="StudentElearningModel.FK_FacultyReq_Faculty" FromRole="Faculty" ToRole="FacultyReq" />
+  </EntityType>
+  <Association Name="FK_Department_Faculty">
+    <End Type="StudentElearningModel.Facultyxxx" Role="Faculty" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.Departmentxx" Role="Departmentxx" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculty">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Departmentxx">
+        <PropertyRef Name="FacId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacultyReq_Faculty">
+    <End Type="StudentElearningModel.Facultyxxx" Role="Faculty" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.FacultyReq" Role="FacultyReq" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculty">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FacultyReq">
+        <PropertyRef Name="FacId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AdmissionProgramme">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AdminId" Type="Int32" />
+    <Property Name="ProgId" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ProgrammeLevel" Relationship="StudentElearningModel.FK_AdmissionProgramme_ProgrammeLevel" FromRole="AdmissionProgramme" ToRole="ProgrammeLevel" />
+    <NavigationProperty Name="Applications" Relationship="StudentElearningModel.FK_Application_AdmissionProgramme" FromRole="AdmissionProgramme" ToRole="Application" />
+  </EntityType>
+  <EntityType Name="Programme">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProgrammeDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProgrammeCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AwardId" Type="Int32" />
+    <Property Name="IsFullTime" Type="Boolean" />
+    <Property Name="DateTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="DeptID" Type="Int32" />
+    <NavigationProperty Name="Award" Relationship="StudentElearningModel.FK_Programme_Award" FromRole="Programme" ToRole="Awardxx" />
+    <NavigationProperty Name="Department" Relationship="StudentElearningModel.FK_Programme_Department" FromRole="Programme" ToRole="Departmentxx" />
+    <NavigationProperty Name="ProgrammeLevels" Relationship="StudentElearningModel.FK_ProgrammeLevel_Programme" FromRole="Programme" ToRole="ProgrammeLevel" />
+  </EntityType>
+  <EntityType Name="ProgrammeLevel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProgLevDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LevId" Type="Int32" />
+    <Property Name="ProgId" Type="Int32" />
+    <NavigationProperty Name="AdmissionProgrammes" Relationship="StudentElearningModel.FK_AdmissionProgramme_ProgrammeLevel" FromRole="ProgrammeLevel" ToRole="AdmissionProgramme" />
+    <NavigationProperty Name="Programme" Relationship="StudentElearningModel.FK_ProgrammeLevel_Programme" FromRole="ProgrammeLevel" ToRole="Programme" />
+    <NavigationProperty Name="ProgrammeReqs" Relationship="StudentElearningModel.FK_ProgrammeReq_ProgrammeLevel" FromRole="ProgrammeLevel" ToRole="ProgrammeReq" />
+    <NavigationProperty Name="StudentCatLevels" Relationship="StudentElearningModel.FK_StudentCatLevel_ProgrammeLevel" FromRole="ProgrammeLevel" ToRole="StudentCatLevel" />
+  </EntityType>
+  <Association Name="FK_AdmissionProgramme_ProgrammeLevel">
+    <End Type="StudentElearningModel.ProgrammeLevel" Role="ProgrammeLevel" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.AdmissionProgramme" Role="AdmissionProgramme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProgrammeLevel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdmissionProgramme">
+        <PropertyRef Name="ProgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_AdmissionProgramme">
+    <End Type="StudentElearningModel.AdmissionProgramme" Role="AdmissionProgramme" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.Application" Role="Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdmissionProgramme">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="AdmProgID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Programme_Award">
+    <End Type="StudentElearningModel.Awardxx" Role="Awardxx" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.Programme" Role="Programme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Awardxx">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Programme">
+        <PropertyRef Name="AwardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Programme_Department">
+    <End Type="StudentElearningModel.Departmentxx" Role="Departmentxx" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.Programme" Role="Programme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departmentxx">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Programme">
+        <PropertyRef Name="DeptID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProgrammeLevel_Programme">
+    <End Type="StudentElearningModel.Programme" Role="Programme" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.ProgrammeLevel" Role="ProgrammeLevel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Programme">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProgrammeLevel">
+        <PropertyRef Name="ProgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProgrammeReq_ProgrammeLevel">
+    <End Type="StudentElearningModel.ProgrammeLevel" Role="ProgrammeLevel" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.ProgrammeReq" Role="ProgrammeReq" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProgrammeLevel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProgrammeReq">
+        <PropertyRef Name="ProgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentCatLevel_ProgrammeLevel">
+    <End Type="StudentElearningModel.ProgrammeLevel" Role="ProgrammeLevel" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.StudentCatLevel" Role="StudentCatLevel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProgrammeLevel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentCatLevel">
+        <PropertyRef Name="ProgLevId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ExaminationSubject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExamId" Type="Int32" />
+    <Property Name="SubjectId" Type="Int32" />
+    <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="StudentExamination" Relationship="StudentElearningModel.FK_ExaminationSubject_StudentExaminations" FromRole="ExaminationSubject" ToRole="StudentExamination" />
+  </EntityType>
+  <Association Name="FK_ExaminationSubject_StudentExaminations">
+    <End Type="StudentElearningModel.StudentExamination" Role="StudentExamination" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.ExaminationSubject" Role="ExaminationSubject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentExamination">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExaminationSubject">
+        <PropertyRef Name="ExamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Employmentxx">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Position" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="From" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="To" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AppId" Type="Int32" />
+    <Property Name="DateStamp" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Applicant" Relationship="StudentElearningModel.FK_Employment_Applicant" FromRole="Employment" ToRole="Applicant" />
+  </EntityType>
+  <Association Name="FK_Employment_Applicant">
+    <End Type="StudentElearningModel.Applicant" Role="Applicant" Multiplicity="0..1" />
+    <End Type="StudentElearningModel.Employmentxx" Role="Employment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employment">
+        <PropertyRef Name="AppId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

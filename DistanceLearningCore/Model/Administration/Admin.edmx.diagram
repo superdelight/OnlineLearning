@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dc51a05b6ccc43d494c03e9f3c1dfb53" Name="Diagram1">
+        <EntityTypeShape EntityType="ElearningAdminModel.Admission" Width="1.5" PointX="8.625" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningAdminModel.Award" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningAdminModel.CourseRole" Width="1.5" PointX="1" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningAdminModel.Cours" Width="1.5" PointX="5.375" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningAdminModel.Department" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningAdminModel.Faculty" Width="1.5" PointX="0.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningAdminModel.Level" Width="1.5" PointX="3.125" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningAdminModel.ProgrammeAdmin" Width="2.125" PointX="8.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningAdminModel.Semester" Width="1.5" PointX="9.375" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningAdminModel.Session" Width="1.5" PointX="5.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningAdminModel.SessionSem" Width="1.5" PointX="12.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningAdminModel.SMTPProxy" Width="1.5" PointX="5.625" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningAdminModel.Step" Width="1.5" PointX="1" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningAdminModel.StudentCategory" Width="1.875" PointX="2.875" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningAdminModel.Subject" Width="1.5" PointX="11.125" PointY="11.875" IsExpanded="true" />
+        <AssociationConnector Association="ElearningAdminModel.FK_Admission_Session" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="ElearningAdminModel.FK_Programme_Award" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningAdminModel.FK_Courses_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningAdminModel.FK_Department_Faculty" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningAdminModel.FK_Programme_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningAdminModel.FK_SessionSem_Semester" ManuallyRouted="true" >
+          <ConnectorPoint PointX="10.312500499999999" PointY="11.875" />
+          <ConnectorPoint PointX="10.312500499999999" PointY="10.585999348958332" />
+          <ConnectorPoint PointX="15" PointY="10.585999348958332" />
+          <ConnectorPoint PointX="14.249081002669545" PointY="6.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="ElearningAdminModel.FK_SessionSem_Session" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ElearningAdminModel.School" Width="1.5" PointX="3" PointY="0.875" />
+        <AssociationConnector Association="ElearningAdminModel.FK_Award_School" />
+        <AssociationConnector Association="ElearningAdminModel.FK_Faculty_School" />
+        <EntityTypeShape EntityType="ElearningAdminModel.ProgrammeLevelAdmin" Width="2.25" PointX="13.5" PointY="3" />
+        <EntityTypeShape EntityType="ElearningAdminModel.StudentCatLevelxxx" Width="2" PointX="15.75" PointY="5.625" />
+        <EntityTypeShape EntityType="ElearningAdminModel.StudentLevel" Width="1.5" PointX="19.125" PointY="6.5" />
+        <AssociationConnector Association="ElearningAdminModel.FK_ProgrammeLevel_Level" />
+        <AssociationConnector Association="ElearningAdminModel.FK_ProgrammeLevel_Programme" />
+        <AssociationConnector Association="ElearningAdminModel.FK_StudentCatLevel_ProgrammeLevel" />
+        <AssociationConnector Association="ElearningAdminModel.FK_StudentLevel_Session" ManuallyRouted="true" >
+          <ConnectorPoint PointX="6.656252" PointY="7.2500000000003366" />
+          <ConnectorPoint PointX="6.656252" PointY="7" />
+          <ConnectorPoint PointX="8.375" PointY="7" />
+          <ConnectorPoint PointX="8.375" PointY="10.460999348958332" />
+          <ConnectorPoint PointX="8.8854166666666661" PointY="10.460999348958332" />
+          <ConnectorPoint PointX="9.0520833333333339" PointY="10.460999348958332" />
+          <ConnectorPoint PointX="14.893694349089023" PointY="10.460999348958332" />
+          <ConnectorPoint PointX="15.06036101575569" PointY="10.460999348958332" />
+          <ConnectorPoint PointX="18.510416666666668" PointY="10.460999348958332" />
+          <ConnectorPoint PointX="19.125" PointY="7.799181292551582" />
+        </AssociationConnector>
+        <AssociationConnector Association="ElearningAdminModel.FK_StudentCatLevel_StudentCategory" />
+        <AssociationConnector Association="ElearningAdminModel.FK_StudentLevel_StudentCatLevel" />
+        <EntityTypeShape EntityType="ElearningAdminModel.Student" PointX="1" PointY="13.375" Width="1.5" />
+        <AssociationConnector Association="ElearningAdminModel.FK_StudentLevel_Student" />
+        <EntityTypeShape EntityType="ElearningAdminModel.ApplicantProgress" Width="1.5" PointX="3.25" PointY="12.25" />
+        <AssociationConnector Association="ElearningAdminModel.FK_ApplicantProgress_Steps" />
+        <EntityTypeShape EntityType="ElearningAdminModel.AdmissionProgrammeAdmin" Width="2.375" PointX="18.25" PointY="2.75" />
+        <AssociationConnector Association="ElearningAdminModel.FK_AdmissionProgramme_Admission" />
+        <AssociationConnector Association="ElearningAdminModel.FK_AdmissionProgramme_ProgrammeLevel" />
+        <EntityTypeShape EntityType="ElearningAdminModel.ApplicantAdmin" Width="1.5" PointX="12.875" PointY="14.375" />
+        <EntityTypeShape EntityType="ElearningAdminModel.ApplicationAdmin" Width="1.5" PointX="23.375" PointY="3" />
+        <EntityTypeShape EntityType="ElearningAdminModel.PersonAdm" Width="1.5" PointX="0.75" PointY="10.625" />
+        <AssociationConnector Association="ElearningAdminModel.FK_Applicant_Admission" />
+        <AssociationConnector Association="ElearningAdminModel.FK_Application_AdmissionProgramme" />
+        <AssociationConnector Association="ElearningAdminModel.FK_ApplicantProgress_Applicant" />
+        <AssociationConnector Association="ElearningAdminModel.FK_Application_Applicant" />
+        <AssociationConnector Association="ElearningAdminModel.FK_Student_Person" />
+        <InheritanceConnector EntityType="ElearningAdminModel.ApplicantAdmin" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

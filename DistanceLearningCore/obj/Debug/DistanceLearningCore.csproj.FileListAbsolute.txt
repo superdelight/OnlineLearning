@@ -1,0 +1,29 @@
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\DistanceLearningCore.dll.config
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\DistanceLearningCore.dll
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\DistanceLearningCore.pdb
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\AutoMapper.dll
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\DistanceLearningInfrastructure.dll
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\DistanceLearningModel.dll
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\EntityFramework.dll
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\EntityFramework.SqlServer.dll
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\DistanceLearningInfrastructure.pdb
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\DistanceLearningModel.pdb
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\EntityFramework.xml
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\EntityFramework.SqlServer.xml
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\obj\Debug\DistanceLearningCore.csprojResolveAssemblyReference.cache
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\obj\Debug\DistanceLearningCore.dll
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\obj\Debug\DistanceLearningCore.pdb
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\obj\Debug\DistanceLearningCore.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\obj\Debug\DistanceLearningCore.dll
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\obj\Debug\DistanceLearningCore.pdb
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\DistanceLearningCore.dll.config
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\DistanceLearningCore.dll
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\DistanceLearningCore.pdb
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\DistanceLearningInfrastructure.dll
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\DistanceLearningModel.dll
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\DistanceLearningInfrastructure.pdb
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\DistanceLearningModel.pdb
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningCore\bin\Debug\EntityFramework.SqlServer.xml

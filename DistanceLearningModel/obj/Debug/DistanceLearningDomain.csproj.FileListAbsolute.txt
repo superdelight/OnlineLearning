@@ -1,0 +1,14 @@
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\bin\Debug\DistanceLearningModel.dll
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\bin\Debug\DistanceLearningModel.pdb
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\bin\Debug\DistanceLearningInfrastructure.dll
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\bin\Debug\DistanceLearningInfrastructure.pdb
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\obj\Debug\DistanceLearningDomain.csprojResolveAssemblyReference.cache
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\obj\Debug\DistanceLearningModel.dll
+F:\Project\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\obj\Debug\DistanceLearningModel.pdb
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\bin\Debug\DistanceLearningModel.dll
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\bin\Debug\DistanceLearningModel.pdb
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\bin\Debug\DistanceLearningInfrastructure.dll
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\bin\Debug\DistanceLearningInfrastructure.pdb
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\obj\Debug\DistanceLearningDomain.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\obj\Debug\DistanceLearningModel.dll
+C:\Users\Administrator\Documents\My Bakkkk\Libraries\ElearningLibraries\DistanceLearningCore\DistanceLearningModel\obj\Debug\DistanceLearningModel.pdb

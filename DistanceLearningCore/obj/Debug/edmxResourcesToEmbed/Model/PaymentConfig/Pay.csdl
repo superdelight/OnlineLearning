@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ElearningPayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AcceptancePayment" BaseType="ElearningPayModel.Payment">
+    <Property Name="AcceptDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Activity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="StudentPrecisions" Relationship="Self.FK_StudentPrecisions_Activity" FromRole="Activity" ToRole="StudentPrecisions" />
+  </EntityType>
+  <EntityType Name="ApplicantPayment" BaseType="ElearningPayModel.Payment">
+    <Property Name="AppDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Award">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AwardDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AwardAcronymns" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SchId" Type="Int32" />
+    <NavigationProperty Name="FacultyPayments" Relationship="Self.FK_FacultyPayment_Award" FromRole="Award" ToRole="FacultyPayment" />
+  </EntityType>
+  <EntityType Name="Faculty">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FacultyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FacultyAcronymns" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SchId" Type="Int32" />
+    <NavigationProperty Name="FacultyPayments" Relationship="Self.FK_FacultyPayment_Faculty" FromRole="Faculty" ToRole="FacultyPayment" />
+  </EntityType>
+  <EntityType Name="FacultyByLevel" BaseType="ElearningPayModel.FacultyPayment">
+    <Property Name="LevelId" Type="Int32" />
+    <NavigationProperty Name="Level" Relationship="Self.FK_FacultyByLevel_Level" FromRole="FacultyByLevel" ToRole="Level" />
+  </EntityType>
+  <EntityType Name="FacultyByStudentCat" BaseType="ElearningPayModel.FacultyPayment">
+    <Property Name="StudCatId" Type="Int32" />
+    <NavigationProperty Name="StudentCategory" Relationship="Self.FK_FacultyByStudentCat_StudentCategory" FromRole="FacultyByStudentCat" ToRole="StudentCategory" />
+  </EntityType>
+  <EntityType Name="FacultyPayment" BaseType="ElearningPayModel.PaymentConfiguration" Abstract="true">
+    <Property Name="FacID" Type="Int32" />
+    <Property Name="AwardId" Type="Int32" />
+    <NavigationProperty Name="Award" Relationship="Self.FK_FacultyPayment_Award" FromRole="FacultyPayment" ToRole="Award" />
+    <NavigationProperty Name="Faculty" Relationship="Self.FK_FacultyPayment_Faculty" FromRole="FacultyPayment" ToRole="Faculty" />
+  </EntityType>
+  <EntityType Name="GeneralPayment" BaseType="ElearningPayModel.PaymentConfiguration">
+    <Property Name="PayDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Invoice" Abstract="true">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalAmount" Type="Single" />
+    <Property Name="IsPaid" Type="Boolean" />
+    <Property Name="PaymentDate" Type="DateTime" Precision="3" />
+    <Property Name="DateGenerated" Type="DateTime" Precision="3" />
+    <Property Name="PaymentRef" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionRef" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Level">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LevelDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FacultyByLevels" Relationship="Self.FK_FacultyByLevel_Level" FromRole="Level" ToRole="FacultyByLevel" />
+  </EntityType>
+  <EntityType Name="OtherPayment" BaseType="ElearningPayModel.Payment">
+    <Property Name="PayDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Payment" Abstract="true">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="PaymentConfigurations" Relationship="Self.FK_PaymentConfiguration_Payment" FromRole="Payment" ToRole="PaymentConfiguration" />
+  </EntityType>
+  <EntityType Name="PaymentConfiguration" Abstract="true">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PayId" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Deadline" Type="DateTime" Precision="3" />
+    <Property Name="TotalAmount" Type="Single" />
+    <NavigationProperty Name="Payment" Relationship="Self.FK_PaymentConfiguration_Payment" FromRole="PaymentConfiguration" ToRole="Payment" />
+    <NavigationProperty Name="PaymentItems" Relationship="Self.FK_PaymentItem_PaymentConfiguration" FromRole="PaymentConfiguration" ToRole="PaymentItem" />
+    <NavigationProperty Name="StudentPrecisions" Relationship="Self.FK_StudentPrecisions_PaymentConfiguration" FromRole="PaymentConfiguration" ToRole="StudentPrecisions" />
+    <Property Name="catId" Type="Int32" />
+    <NavigationProperty Name="PayCategory" Relationship="ElearningPayModel.FK_PaymentConfiguration_PayCategory" FromRole="PaymentConfiguration" ToRole="PayCategory" />
+  </EntityType>
+  <EntityType Name="PaymentItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="PayId" Type="Int32" />
+    <Property Name="Amount" Type="Single" />
+    <NavigationProperty Name="PaymentConfiguration" Relationship="Self.FK_PaymentItem_PaymentConfiguration" FromRole="PaymentItem" ToRole="PaymentConfiguration" />
+  </EntityType>
+  <EntityType Name="SchoolPayment" BaseType="ElearningPayModel.Payment">
+    <Property Name="SchDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Session">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SessionDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsOpen" Type="Boolean" />
+    <Property Name="ClosingDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SessionPayments" Relationship="Self.FK_SessionPayment_Session" FromRole="Session" ToRole="SessionPayment" />
+    <NavigationProperty Name="SessionSems" Relationship="Self.FK_SessionSem_Session" FromRole="Session" ToRole="SessionSem" />
+  </EntityType>
+  <EntityType Name="SessionPayment" BaseType="ElearningPayModel.PayCategory">
+    <Property Name="SessId" Type="Int32" />
+    <NavigationProperty Name="Session" Relationship="Self.FK_SessionPayment_Session" FromRole="SessionPayment" ToRole="Session" />
+  </EntityType>
+  <EntityType Name="SessionSem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SemId" Type="Int32" />
+    <Property Name="SessId" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="IsOpen" Type="Boolean" />
+    <Property Name="DateClosed" Type="DateTime" Precision="3" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="ExtensionDays" Type="Int32" />
+    <Property Name="ClosingRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WeekCount" Type="Int32" />
+    <NavigationProperty Name="Session" Relationship="Self.FK_SessionSem_Session" FromRole="SessionSem" ToRole="Session" />
+    <NavigationProperty Name="SessionSemPayments" Relationship="Self.FK_SessionSemPayment_SessionSem" FromRole="SessionSem" ToRole="SessionSemPayment" />
+    <NavigationProperty Name="StudentRegistrations" Relationship="Self.FK_StudentRegistration_SessionSem" FromRole="SessionSem" ToRole="StudentRegistration" />
+  </EntityType>
+  <EntityType Name="SessionSemPayment" BaseType="ElearningPayModel.PayCategory">
+    <Property Name="SessId" Type="Int32" />
+    <NavigationProperty Name="SessionSem" Relationship="Self.FK_SessionSemPayment_SessionSem" FromRole="SessionSemPayment" ToRole="SessionSem" />
+  </EntityType>
+  <EntityType Name="StudentCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FacultyByStudentCats" Relationship="Self.FK_FacultyByStudentCat_StudentCategory" FromRole="StudentCategory" ToRole="FacultyByStudentCat" />
+  </EntityType>
+  <EntityType Name="StudentInvoice" BaseType="ElearningPayModel.Invoice">
+    <Property Name="PrecisionId" Type="Int32" />
+    <Property Name="StudentId" Type="Int32" />
+    <NavigationProperty Name="StudentPrecision" Relationship="Self.FK_StudentInvoice_StudentPrecisions" FromRole="StudentInvoice" ToRole="StudentPrecisions" />
+  </EntityType>
+  <EntityType Name="StudentPrecision">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActivityId" Type="Int32" />
+    <Property Name="PayId" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Activity" Relationship="Self.FK_StudentPrecisions_Activity" FromRole="StudentPrecisions" ToRole="Activity" />
+    <NavigationProperty Name="PaymentConfiguration" Relationship="Self.FK_StudentPrecisions_PaymentConfiguration" FromRole="StudentPrecisions" ToRole="PaymentConfiguration" />
+    <NavigationProperty Name="StudentInvoices" Relationship="Self.FK_StudentInvoice_StudentPrecisions" FromRole="StudentPrecisions" ToRole="StudentInvoice" />
+  </EntityType>
+  <EntityType Name="StudentRegistration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseId" Type="Int32" />
+    <Property Name="StdId" Type="Int32" />
+    <Property Name="RegDate" Type="DateTime" Precision="3" />
+    <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SessId" Type="Int32" />
+    <NavigationProperty Name="SessionSem" Relationship="Self.FK_StudentRegistration_SessionSem" FromRole="StudentRegistration" ToRole="SessionSem" />
+  </EntityType>
+  <Association Name="FK_StudentPrecisions_Activity">
+    <End Role="Activity" Type="Self.Activity" Multiplicity="0..1" />
+    <End Role="StudentPrecisions" Type="Self.StudentPrecision" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Activity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentPrecisions">
+        <PropertyRef Name="ActivityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacultyPayment_Award">
+    <End Role="Award" Type="Self.Award" Multiplicity="0..1" />
+    <End Role="FacultyPayment" Type="Self.FacultyPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Award">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FacultyPayment">
+        <PropertyRef Name="AwardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacultyPayment_Faculty">
+    <End Role="Faculty" Type="Self.Faculty" Multiplicity="0..1" />
+    <End Role="FacultyPayment" Type="Self.FacultyPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculty">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FacultyPayment">
+        <PropertyRef Name="FacID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacultyByLevel_Level">
+    <End Role="Level" Type="Self.Level" Multiplicity="0..1" />
+    <End Role="FacultyByLevel" Type="Self.FacultyByLevel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Level">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FacultyByLevel">
+        <PropertyRef Name="LevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacultyByStudentCat_StudentCategory">
+    <End Role="StudentCategory" Type="Self.StudentCategory" Multiplicity="0..1" />
+    <End Role="FacultyByStudentCat" Type="Self.FacultyByStudentCat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FacultyByStudentCat">
+        <PropertyRef Name="StudCatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PaymentConfiguration_Payment">
+    <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
+    <End Role="PaymentConfiguration" Type="Self.PaymentConfiguration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PaymentConfiguration">
+        <PropertyRef Name="PayId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PaymentItem_PaymentConfiguration">
+    <End Role="PaymentConfiguration" Type="Self.PaymentConfiguration" Multiplicity="0..1" />
+    <End Role="PaymentItem" Type="Self.PaymentItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentConfiguration">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PaymentItem">
+        <PropertyRef Name="PayId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentPrecisions_PaymentConfiguration">
+    <End Role="PaymentConfiguration" Type="Self.PaymentConfiguration" Multiplicity="0..1" />
+    <End Role="StudentPrecisions" Type="Self.StudentPrecision" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentConfiguration">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentPrecisions">
+        <PropertyRef Name="PayId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SessionPayment_Session">
+    <End Role="Session" Type="Self.Session" Multiplicity="0..1" />
+    <End Role="SessionPayment" Type="Self.SessionPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Session">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SessionPayment">
+        <PropertyRef Name="SessId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SessionSem_Session">
+    <End Role="Session" Type="Self.Session" Multiplicity="0..1" />
+    <End Role="SessionSem" Type="Self.SessionSem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Session">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SessionSem">
+        <PropertyRef Name="SessId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SessionSemPayment_SessionSem">
+    <End Role="SessionSem" Type="Self.SessionSem" Multiplicity="0..1" />
+    <End Role="SessionSemPayment" Type="Self.SessionSemPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SessionSem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SessionSemPayment">
+        <PropertyRef Name="SessId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentRegistration_SessionSem">
+    <End Role="SessionSem" Type="Self.SessionSem" Multiplicity="0..1" />
+    <End Role="StudentRegistration" Type="Self.StudentRegistration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SessionSem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentRegistration">
+        <PropertyRef Name="SessId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentInvoice_StudentPrecisions">
+    <End Role="StudentPrecisions" Type="Self.StudentPrecision" Multiplicity="0..1" />
+    <End Role="StudentInvoice" Type="Self.StudentInvoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentPrecisions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentInvoice">
+        <PropertyRef Name="PrecisionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PayEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Activities" EntityType="Self.Activity" />
+    <EntitySet Name="Awards" EntityType="Self.Award" />
+    <EntitySet Name="Faculties" EntityType="Self.Faculty" />
+    <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+    <EntitySet Name="Levels" EntityType="Self.Level" />
+    <EntitySet Name="Payments" EntityType="Self.Payment" />
+    <EntitySet Name="PaymentConfigurations" EntityType="Self.PaymentConfiguration" />
+    <EntitySet Name="PaymentItems" EntityType="Self.PaymentItem" />
+    <EntitySet Name="Sessions" EntityType="Self.Session" />
+    <EntitySet Name="SessionSems" EntityType="Self.SessionSem" />
+    <EntitySet Name="StudentCategories" EntityType="Self.StudentCategory" />
+    <EntitySet Name="StudentPrecisions" EntityType="Self.StudentPrecision" />
+    <EntitySet Name="StudentRegistrations" EntityType="Self.StudentRegistration" />
+    <AssociationSet Name="FK_StudentPrecisions_Activity" Association="Self.FK_StudentPrecisions_Activity">
+      <End Role="Activity" EntitySet="Activities" />
+      <End Role="StudentPrecisions" EntitySet="StudentPrecisions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacultyPayment_Award" Association="Self.FK_FacultyPayment_Award">
+      <End Role="Award" EntitySet="Awards" />
+      <End Role="FacultyPayment" EntitySet="PaymentConfigurations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacultyPayment_Faculty" Association="Self.FK_FacultyPayment_Faculty">
+      <End Role="Faculty" EntitySet="Faculties" />
+      <End Role="FacultyPayment" EntitySet="PaymentConfigurations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacultyByLevel_Level" Association="Self.FK_FacultyByLevel_Level">
+      <End Role="Level" EntitySet="Levels" />
+      <End Role="FacultyByLevel" EntitySet="PaymentConfigurations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacultyByStudentCat_StudentCategory" Association="Self.FK_FacultyByStudentCat_StudentCategory">
+      <End Role="StudentCategory" EntitySet="StudentCategories" />
+      <End Role="FacultyByStudentCat" EntitySet="PaymentConfigurations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PaymentConfiguration_Payment" Association="Self.FK_PaymentConfiguration_Payment">
+      <End Role="Payment" EntitySet="Payments" />
+      <End Role="PaymentConfiguration" EntitySet="PaymentConfigurations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PaymentItem_PaymentConfiguration" Association="Self.FK_PaymentItem_PaymentConfiguration">
+      <End Role="PaymentConfiguration" EntitySet="PaymentConfigurations" />
+      <End Role="PaymentItem" EntitySet="PaymentItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentPrecisions_PaymentConfiguration" Association="Self.FK_StudentPrecisions_PaymentConfiguration">
+      <End Role="PaymentConfiguration" EntitySet="PaymentConfigurations" />
+      <End Role="StudentPrecisions" EntitySet="StudentPrecisions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SessionPayment_Session" Association="Self.FK_SessionPayment_Session">
+      <End Role="Session" EntitySet="Sessions" />
+      <End Role="SessionPayment" EntitySet="PayCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SessionSem_Session" Association="Self.FK_SessionSem_Session">
+      <End Role="Session" EntitySet="Sessions" />
+      <End Role="SessionSem" EntitySet="SessionSems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SessionSemPayment_SessionSem" Association="Self.FK_SessionSemPayment_SessionSem">
+      <End Role="SessionSem" EntitySet="SessionSems" />
+      <End Role="SessionSemPayment" EntitySet="PayCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentRegistration_SessionSem" Association="Self.FK_StudentRegistration_SessionSem">
+      <End Role="SessionSem" EntitySet="SessionSems" />
+      <End Role="StudentRegistration" EntitySet="StudentRegistrations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentInvoice_StudentPrecisions" Association="Self.FK_StudentInvoice_StudentPrecisions">
+      <End Role="StudentPrecisions" EntitySet="StudentPrecisions" />
+      <End Role="StudentInvoice" EntitySet="Invoices" />
+    </AssociationSet>
+    <EntitySet Name="PayCategories" EntityType="ElearningPayModel.PayCategory" />
+    <AssociationSet Name="FK_PaymentConfiguration_PayCategory" Association="ElearningPayModel.FK_PaymentConfiguration_PayCategory">
+      <End Role="PayCategory" EntitySet="PayCategories" />
+      <End Role="PaymentConfiguration" EntitySet="PaymentConfigurations" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PayCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PaymentConfigurations" Relationship="ElearningPayModel.FK_PaymentConfiguration_PayCategory" FromRole="PayCategory" ToRole="PaymentConfiguration" />
+  </EntityType>
+  <Association Name="FK_PaymentConfiguration_PayCategory">
+    <End Type="ElearningPayModel.PayCategory" Role="PayCategory" Multiplicity="0..1" />
+    <End Type="ElearningPayModel.PaymentConfiguration" Role="PaymentConfiguration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PayCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PaymentConfiguration">
+        <PropertyRef Name="catId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

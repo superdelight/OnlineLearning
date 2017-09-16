@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ElearningPayModelStoreContainer" CdmEntityContainer="PayEntities">
+    <EntitySetMapping Name="Activities">
+      <EntityTypeMapping TypeName="ElearningPayModel.Activity">
+        <MappingFragment StoreEntitySet="Activity">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Awards">
+      <EntityTypeMapping TypeName="ElearningPayModel.Award">
+        <MappingFragment StoreEntitySet="Award">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AwardDescription" ColumnName="AwardDescription" />
+          <ScalarProperty Name="AwardAcronymns" ColumnName="AwardAcronymns" />
+          <ScalarProperty Name="SchId" ColumnName="SchId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Faculties">
+      <EntityTypeMapping TypeName="ElearningPayModel.Faculty">
+        <MappingFragment StoreEntitySet="Faculty">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FacultyName" ColumnName="FacultyName" />
+          <ScalarProperty Name="FacultyAcronymns" ColumnName="FacultyAcronymns" />
+          <ScalarProperty Name="SchId" ColumnName="SchId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invoices">
+      <EntityTypeMapping TypeName="IsTypeOf(ElearningPayModel.Invoice)">
+        <MappingFragment StoreEntitySet="Invoice">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TransactionRef" ColumnName="TransactionRef" />
+          <ScalarProperty Name="PaymentRef" ColumnName="PaymentRef" />
+          <ScalarProperty Name="DateGenerated" ColumnName="DateGenerated" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ElearningPayModel.StudentInvoice)">
+        <MappingFragment StoreEntitySet="StudentInvoice">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="PrecisionId" ColumnName="PrecisionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Levels">
+      <EntityTypeMapping TypeName="ElearningPayModel.Level">
+        <MappingFragment StoreEntitySet="Level">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LevelDescription" ColumnName="LevelDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payments">
+      <EntityTypeMapping TypeName="IsTypeOf(ElearningPayModel.Payment)">
+        <MappingFragment StoreEntitySet="Payment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="PaymentDescription" ColumnName="PaymentDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ElearningPayModel.OtherPayment)">
+        <MappingFragment StoreEntitySet="OtherPayment">
+          <ScalarProperty Name="PayDescription" ColumnName="PayDescription" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ElearningPayModel.AcceptancePayment)">
+        <MappingFragment StoreEntitySet="AcceptancePayment">
+          <ScalarProperty Name="AcceptDescription" ColumnName="AcceptDescription" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ElearningPayModel.ApplicantPayment)">
+        <MappingFragment StoreEntitySet="ApplicantPayment">
+          <ScalarProperty Name="AppDescription" ColumnName="AppDescription" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ElearningPayModel.SchoolPayment)">
+        <MappingFragment StoreEntitySet="SchoolPayment">
+          <ScalarProperty Name="SchDescription" ColumnName="SchDescription" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentConfigurations">
+      <EntityTypeMapping TypeName="IsTypeOf(ElearningPayModel.PaymentConfiguration)">
+        <MappingFragment StoreEntitySet="PaymentConfiguration">
+          <ScalarProperty Name="catId" ColumnName="catId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="PayId" ColumnName="PayId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ElearningPayModel.FacultyPayment)">
+        <MappingFragment StoreEntitySet="FacultyPayment">
+          <ScalarProperty Name="AwardId" ColumnName="AwardId" />
+          <ScalarProperty Name="FacID" ColumnName="FacID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ElearningPayModel.FacultyByLevel)">
+        <MappingFragment StoreEntitySet="FacultyByLevel">
+          <ScalarProperty Name="LevelId" ColumnName="LevelId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ElearningPayModel.GeneralPayment)" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <MappingFragment StoreEntitySet="GeneralPayment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PayDescription" ColumnName="PayDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ElearningPayModel.FacultyByStudentCat)">
+        <MappingFragment StoreEntitySet="FacultyByStudentCat">
+          <ScalarProperty Name="StudCatId" ColumnName="StudCatId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentItems">
+      <EntityTypeMapping TypeName="ElearningPayModel.PaymentItem">
+        <MappingFragment StoreEntitySet="PaymentItem">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PayId" ColumnName="PayId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sessions">
+      <EntityTypeMapping TypeName="ElearningPayModel.Session">
+        <MappingFragment StoreEntitySet="Session">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SessionDescription" ColumnName="SessionDescription" />
+          <ScalarProperty Name="IsOpen" ColumnName="IsOpen" />
+          <ScalarProperty Name="ClosingDate" ColumnName="ClosingDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SessionSems">
+      <EntityTypeMapping TypeName="ElearningPayModel.SessionSem">
+        <MappingFragment StoreEntitySet="SessionSem">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SemId" ColumnName="SemId" />
+          <ScalarProperty Name="SessId" ColumnName="SessId" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="IsOpen" ColumnName="IsOpen" />
+          <ScalarProperty Name="DateClosed" ColumnName="DateClosed" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ExtensionDays" ColumnName="ExtensionDays" />
+          <ScalarProperty Name="ClosingRemarks" ColumnName="ClosingRemarks" />
+          <ScalarProperty Name="WeekCount" ColumnName="WeekCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentCategories">
+      <EntityTypeMapping TypeName="ElearningPayModel.StudentCategory">
+        <MappingFragment StoreEntitySet="StudentCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentPrecisions">
+      <EntityTypeMapping TypeName="ElearningPayModel.StudentPrecision">
+        <MappingFragment StoreEntitySet="StudentPrecisions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+          <ScalarProperty Name="PayId" ColumnName="PayId" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentRegistrations">
+      <EntityTypeMapping TypeName="ElearningPayModel.StudentRegistration">
+        <MappingFragment StoreEntitySet="StudentRegistration">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="StdId" ColumnName="StdId" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="SessId" ColumnName="SessId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PayCategories">
+      <EntityTypeMapping TypeName="IsTypeOf(ElearningPayModel.PayCategory)">
+        <MappingFragment StoreEntitySet="PayCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ElearningPayModel.SessionPayment)">
+        <MappingFragment StoreEntitySet="SessionPayment">
+          <ScalarProperty Name="SessId" ColumnName="SessId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ElearningPayModel.SessionSemPayment)">
+        <MappingFragment StoreEntitySet="SessionSemPayment">
+          <ScalarProperty Name="SessId" ColumnName="SessId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

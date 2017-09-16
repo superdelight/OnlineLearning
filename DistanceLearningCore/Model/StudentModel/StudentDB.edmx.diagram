@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3d02984eaa3740aa904e133ce7ad4503" Name="Diagram1" ZoomLevel="75">
+        <EntityTypeShape EntityType="StudentElearningModel.Applicant" Width="1.5" PointX="2.875" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentElearningModel.Person" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentElearningModel.Studentxx" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentElearningModel.StudentCatLevel" Width="1.5" PointX="10.25" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentElearningModel.StudentDocumentxcx" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentElearningModel.StudentExamination" Width="1.5" PointX="5.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentElearningModel.StudentLevel" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentElearningModel.StudentRegistrationxx" Width="2.125" PointX="7.5" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentElearningModel.StudentSchoolxx" Width="1.5" PointX="5.375" PointY="8.875" IsExpanded="true" />
+        <AssociationConnector Association="StudentElearningModel.FK_StudentExaminations_Applicant" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentElearningModel.FK_StudentSchools_Applicant" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentElearningModel.FK_StudentDocument_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentElearningModel.FK_StudentLevel_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentElearningModel.FK_StudentLevel_StudentCatLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentElearningModel.FK_StudentRegistration_StudentLevel" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="StudentElearningModel.SessionSem" Width="1.5" PointX="8.25" PointY="4.875" />
+        <AssociationConnector Association="StudentElearningModel.FK_StudentRegistration_SessionSem" />
+        <EntityTypeShape EntityType="StudentElearningModel.Curriculum" Width="1.5" PointX="4.875" PointY="0.625" />
+        <AssociationConnector Association="StudentElearningModel.FK_Curriculum_Curriculum" />
+        <AssociationConnector Association="StudentElearningModel.FK_StudentRegistration_Curriculum" />
+        <InheritanceConnector EntityType="StudentElearningModel.Studentxx" />
+        <InheritanceConnector EntityType="StudentElearningModel.Applicant" />
+        <EntityTypeShape EntityType="StudentElearningModel.AdmissionProcessing" Width="1.875" PointX="12.5" PointY="9.25" />
+        <EntityTypeShape EntityType="StudentElearningModel.Application" Width="1.5" PointX="10.25" PointY="10" />
+        <AssociationConnector Association="StudentElearningModel.FK_AdmissionProcessing_Application" />
+        <AssociationConnector Association="StudentElearningModel.FK_Application_Applicant" />
+        <EntityTypeShape EntityType="StudentElearningModel.ApplicantProgressxx" Width="1.5" PointX="5.25" PointY="23.375" />
+        <AssociationConnector Association="StudentElearningModel.FK_ApplicantProgress_Applicant" />
+        <EntityTypeShape EntityType="StudentElearningModel.StudentCategoryxxx" Width="2" PointX="0.5" PointY="1" />
+        <AssociationConnector Association="StudentElearningModel.FK_StudentCatLevel_StudentCategory" />
+        <EntityTypeShape EntityType="StudentElearningModel.ProgrammeReq" Width="1.5" PointX="13.5" PointY="14.875" />
+        <EntityTypeShape EntityType="StudentElearningModel.Requirement" Width="1.5" PointX="2.125" PointY="3.375" />
+        <EntityTypeShape EntityType="StudentElearningModel.SchoolReqxsx" Width="1.5" PointX="4.375" PointY="27.125" />
+        <AssociationConnector Association="StudentElearningModel.FK_Curriculum_Requirement" />
+        <EntityTypeShape EntityType="StudentElearningModel.FacultyReq" Width="1.5" PointX="4.375" PointY="30" />
+        <InheritanceConnector EntityType="StudentElearningModel.ProgrammeReq" />
+        <InheritanceConnector EntityType="StudentElearningModel.FacultyReq" />
+        <InheritanceConnector EntityType="StudentElearningModel.SchoolReqxsx" />
+        <EntityTypeShape EntityType="StudentElearningModel.Awardxx" Width="1.5" PointX="3.5" PointY="20.5" />
+        <EntityTypeShape EntityType="StudentElearningModel.Coursexx" Width="1.5" PointX="7.375" PointY="0.875" />
+        <AssociationConnector Association="StudentElearningModel.FK_Curriculum_Courses" />
+        <EntityTypeShape EntityType="StudentElearningModel.Departmentxx" Width="1.5" PointX="10.25" PointY="12.625" />
+        <AssociationConnector Association="StudentElearningModel.FK_Courses_Department" />
+        <EntityTypeShape EntityType="StudentElearningModel.Stepxx" Width="1.5" PointX="9.375" PointY="1.75" />
+        <AssociationConnector Association="StudentElearningModel.FK_ApplicantProgress_Steps" />
+        <EntityTypeShape EntityType="StudentElearningModel.Facultyxxx" Width="1.5" PointX="0.625" PointY="18.75" />
+        <AssociationConnector Association="StudentElearningModel.FK_Department_Faculty" />
+        <AssociationConnector Association="StudentElearningModel.FK_FacultyReq_Faculty" />
+        <EntityTypeShape EntityType="StudentElearningModel.AdmissionProgramme" Width="1.5" PointX="12.25" PointY="25" />
+        <EntityTypeShape EntityType="StudentElearningModel.Programme" Width="1.5" PointX="7.75" PointY="12.75" />
+        <EntityTypeShape EntityType="StudentElearningModel.ProgrammeLevel" Width="1.5" PointX="10" PointY="24.875" />
+        <AssociationConnector Association="StudentElearningModel.FK_AdmissionProgramme_ProgrammeLevel" />
+        <AssociationConnector Association="StudentElearningModel.FK_Application_AdmissionProgramme" />
+        <AssociationConnector Association="StudentElearningModel.FK_Programme_Award" />
+        <AssociationConnector Association="StudentElearningModel.FK_Programme_Department" />
+        <AssociationConnector Association="StudentElearningModel.FK_ProgrammeLevel_Programme" />
+        <AssociationConnector Association="StudentElearningModel.FK_ProgrammeReq_ProgrammeLevel" />
+        <AssociationConnector Association="StudentElearningModel.FK_StudentCatLevel_ProgrammeLevel" />
+        <EntityTypeShape EntityType="StudentElearningModel.ExaminationSubject" Width="1.875" PointX="8.125" PointY="9.5" />
+        <AssociationConnector Association="StudentElearningModel.FK_ExaminationSubject_StudentExaminations" />
+        <EntityTypeShape EntityType="StudentElearningModel.Employmentxx" Width="1.5" PointX="5.25" PointY="15.5" />
+        <AssociationConnector Association="StudentElearningModel.FK_Employment_Applicant" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

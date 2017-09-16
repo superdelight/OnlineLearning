@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EBDD1FB2-A905-4F2F-B45F-9AD9BE865F08}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DistanceLearningDomain</RootNamespace>
+    <AssemblyName>DistanceLearningModel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Model\AcceptancePayment.cs" />
+    <Compile Include="Model\Activity.cs" />
+    <Compile Include="Model\Admission.cs" />
+    <Compile Include="Model\AdmissionProcessing.cs" />
+    <Compile Include="Model\AdmissionProgramme.cs" />
+    <Compile Include="Model\Applicant.cs" />
+    <Compile Include="Model\ApplicantPayment.cs" />
+    <Compile Include="Model\ApplicantProgress.cs" />
+    <Compile Include="Model\Application.cs" />
+    <Compile Include="Model\ApplicationPay.cs" />
+    <Compile Include="Model\Award.cs" />
+    <Compile Include="Model\ChildPayment.cs" />
+    <Compile Include="Model\Cours.cs" />
+    <Compile Include="Model\CourseRole.cs" />
+    <Compile Include="Model\Curriculum.cs" />
+    <Compile Include="Model\Department.cs" />
+    <Compile Include="Model\Designation.cs" />
+    <Compile Include="Model\Employment.cs" />
+    <Compile Include="Model\ExaminationSubject.cs" />
+    <Compile Include="Model\Faculty.cs" />
+    <Compile Include="Model\FacultyByLevel.cs" />
+    <Compile Include="Model\FacultyByStudentCat.cs" />
+    <Compile Include="Model\FacultyPayment.cs" />
+    <Compile Include="Model\FacultyReq.cs" />
+    <Compile Include="Model\GeneralByFaculty.cs" />
+    <Compile Include="Model\GeneralByLevel.cs" />
+    <Compile Include="Model\GeneralByStudCat.cs" />
+    <Compile Include="Model\GeneralPayment.cs" />
+    <Compile Include="Model\GenralAll.cs" />
+    <Compile Include="Model\Invoice.cs" />
+    <Compile Include="Model\InvoicePayment.cs" />
+    <Compile Include="Model\Level.cs" />
+    <Compile Include="Model\OtherPayment.cs" />
+    <Compile Include="Model\Pay.cs" />
+    <Compile Include="Model\Pay.designer.cs">
+      <DependentUpon>Pay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PayCategory.cs" />
+    <Compile Include="Model\Payment.cs" />
+    <Compile Include="Model\PaymentConfiguration.cs" />
+    <Compile Include="Model\PaymentItem.cs" />
+    <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\Programme.cs" />
+    <Compile Include="Model\ProgrammeLevel.cs" />
+    <Compile Include="Model\ProgrammeReq.cs" />
+    <Compile Include="Model\Requirement.cs" />
+    <Compile Include="Model\School.cs" />
+    <Compile Include="Model\SchoolPayment.cs" />
+    <Compile Include="Model\SchoolReq.cs" />
+    <Compile Include="Model\Semester.cs" />
+    <Compile Include="Model\Session.cs" />
+    <Compile Include="Model\SessionPayment.cs" />
+    <Compile Include="Model\SessionSem.cs" />
+    <Compile Include="Model\SessionSemPayment.cs" />
+    <Compile Include="Model\SMTPProxy.cs" />
+    <Compile Include="Model\Staff.cs" />
+    <Compile Include="Model\Step.cs" />
+    <Compile Include="Model\Student.cs" />
+    <Compile Include="Model\StudentActivityRecord.cs" />
+    <Compile Include="Model\StudentCategory.cs" />
+    <Compile Include="Model\StudentCatLevel.cs" />
+    <Compile Include="Model\StudentDocument.cs" />
+    <Compile Include="Model\StudentExamination.cs" />
+    <Compile Include="Model\StudentInvoice.cs" />
+    <Compile Include="Model\StudentLevel.cs" />
+    <Compile Include="Model\StudentPayment.cs" />
+    <Compile Include="Model\StudentPrecision.cs" />
+    <Compile Include="Model\StudentRegistration.cs" />
+    <Compile Include="Model\StudentSchool.cs" />
+    <Compile Include="Model\Subject.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IApplicantPayment.cs" />
+    <Compile Include="Repository\IApplicantion.cs" />
+    <Compile Include="Repository\ICurriculumRepository.cs" />
+    <Compile Include="Repository\IApplicantProgress.cs" />
+    <Compile Include="Repository\IFacultyByLevel.cs" />
+    <Compile Include="Repository\IInvoicePaymentRepository.cs" />
+    <Compile Include="Repository\IInvoiceRepository.cs" />
+    <Compile Include="Repository\IGeneralFacultyRepository.cs" />
+    <Compile Include="Repository\IGeneralByStudCatRepository.cs" />
+    <Compile Include="Repository\IGeneralByLevelRepository.cs" />
+    <Compile Include="Repository\IGeneralAllRepository.cs" />
+    <Compile Include="Repository\IPayCategory.cs" />
+    <Compile Include="Repository\IChildPaymentRepository.cs" />
+    <Compile Include="Repository\IPaymentItem.cs" />
+    <Compile Include="Repository\IProgrammeRequirementRepository.cs" />
+    <Compile Include="Repository\IProgrammeLevelRepositoy.cs" />
+    <Compile Include="Repository\IStudCatLevelRepository.cs" />
+    <Compile Include="Repository\ISessionSemPayment.cs" />
+    <Compile Include="Repository\ISessionPayment.cs" />
+    <Compile Include="Repository\IPayConfigRepository.cs" />
+    <Compile Include="Repository\IPayment.cs" />
+    <Compile Include="Repository\IGeneralPayment.cs" />
+    <Compile Include="Repository\IOtherPayment.cs" />
+    <Compile Include="Repository\ISchoolPayment.cs" />
+    <Compile Include="Repository\IAdmissionProgrammeRepository.cs" />
+    <Compile Include="Repository\IAdmissionRepository.cs" />
+    <Compile Include="Repository\ICourseRoleRepository.cs" />
+    <Compile Include="Repository\IAcceptance.cs" />
+    <Compile Include="Repository\ISessionSemRepository.cs" />
+    <Compile Include="Repository\ISMTPProxyRepository.cs" />
+    <Compile Include="Repository\IStepRepository.cs" />
+    <Compile Include="Repository\ILevelRepository.cs" />
+    <Compile Include="Repository\IExaminationSubject.cs" />
+    <Compile Include="Repository\IStudentEmployment.cs" />
+    <Compile Include="Repository\IStudentRegistrationRepository.cs" />
+    <Compile Include="Repository\IAdmissionProcessing.cs" />
+    <Compile Include="Repository\IStudentSchool.cs" />
+    <Compile Include="Repository\IStudentExamination.cs" />
+    <Compile Include="Repository\IStudentLevelRepository.cs" />
+    <Compile Include="Repository\IStudentCategoryRepository.cs" />
+    <Compile Include="Repository\ISubjectRepository.cs" />
+    <Compile Include="Repository\IProgrammeRepository.cs" />
+    <Compile Include="Repository\ICourseRepository.cs" />
+    <Compile Include="Repository\IFacultyRepository.cs" />
+    <Compile Include="Repository\ISemesterRepository.cs" />
+    <Compile Include="Repository\IAwardRepository.cs" />
+    <Compile Include="Repository\ISessionRepository.cs" />
+    <Compile Include="Repository\ISchoolRepository.cs" />
+    <Compile Include="Repository\IStudentRepository.cs" />
+    <Compile Include="Repository\IApplicantRepository.cs" />
+    <Compile Include="Repository\IDepartmentRepository.cs" />
+    <Compile Include="Repository\IPersonRepository.cs" />
+    <Compile Include="Repository\IDesignation.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Service\IStudentService.cs" />
+    <Compile Include="Service\IRegistrationService.cs" />
+    <Compile Include="UoW\Class1.cs" />
+    <Compile Include="UoW\IPaymentUoW.cs" />
+    <Compile Include="UoW\IAdministrationUoW.cs" />
+    <Compile Include="UoW\IUoW.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DistanceLearningInfrastructure\DistanceLearningInfrastructure.csproj">
+      <Project>{085955d4-f640-4b37-bc93-7b13f673cd48}</Project>
+      <Name>DistanceLearningInfrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

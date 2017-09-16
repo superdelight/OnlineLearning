@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StudentElearningModelStoreContainer" CdmEntityContainer="StudentElearningEntities">
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="IsTypeOf(StudentElearningModel.Person)">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NxtRelationship" ColumnName="NxtRelationship" />
+          <ScalarProperty Name="NxtPhoneNo" ColumnName="NxtPhoneNo" />
+          <ScalarProperty Name="NxtEmail" ColumnName="NxtEmail" />
+          <ScalarProperty Name="NxtFullName" ColumnName="NxtFullName" />
+          <ScalarProperty Name="IncompleteOLevel" ColumnName="IncompleteOLevel" />
+          <ScalarProperty Name="DateVerified" ColumnName="DateVerified" />
+          <ScalarProperty Name="VerifiedBy" ColumnName="VerifiedBy" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="IsDE" ColumnName="IsDE" />
+          <ScalarProperty Name="IsSPT" ColumnName="IsSPT" />
+          <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
+          <ScalarProperty Name="IsEmployed" ColumnName="IsEmployed" />
+          <ScalarProperty Name="Signature" ColumnName="Signature" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="HealthStatus" ColumnName="HealthStatus" />
+          <ScalarProperty Name="MarritalStatus" ColumnName="MarritalStatus" />
+          <ScalarProperty Name="LGA" ColumnName="LGA" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="PlaceofBirth" ColumnName="PlaceofBirth" />
+          <ScalarProperty Name="PostalAddress" ColumnName="PostalAddress" />
+          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="StateofOrigin" ColumnName="StateofOrigin" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="MaidenName" ColumnName="MaidenName" />
+          <ScalarProperty Name="Othername" ColumnName="Othername" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(StudentElearningModel.Studentxx)">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="MatricNo" ColumnName="MatricNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(StudentElearningModel.Applicant)">
+        <MappingFragment StoreEntitySet="Applicant">
+          <ScalarProperty Name="ApplicationNo" ColumnName="ApplicationNo" />
+          <ScalarProperty Name="AdmissionId" ColumnName="AdmissionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentCatLevels">
+      <EntityTypeMapping TypeName="StudentElearningModel.StudentCatLevel">
+        <MappingFragment StoreEntitySet="StudentCatLevel">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StudCatId" ColumnName="StudCatId" />
+          <ScalarProperty Name="ProgLevId" ColumnName="ProgLevId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentDocumentxcxes">
+      <EntityTypeMapping TypeName="StudentElearningModel.StudentDocumentxcx">
+        <MappingFragment StoreEntitySet="StudentDocument">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DocumentDescription" ColumnName="DocumentDescription" />
+          <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="PerId" ColumnName="PerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentExaminations">
+      <EntityTypeMapping TypeName="StudentElearningModel.StudentExamination">
+        <MappingFragment StoreEntitySet="StudentExaminations">
+          <ScalarProperty Name="VerifiedBy" ColumnName="VerifiedBy" />
+          <ScalarProperty Name="VerificationDate" ColumnName="VerificationDate" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="VerificationComment" ColumnName="VerificationComment" />
+          <ScalarProperty Name="IsFirst" ColumnName="IsFirst" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ExamBody" ColumnName="ExamBody" />
+          <ScalarProperty Name="ExamCentre" ColumnName="ExamCentre" />
+          <ScalarProperty Name="ExamNo" ColumnName="ExamNo" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="ExamYear" ColumnName="ExamYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentLevels">
+      <EntityTypeMapping TypeName="StudentElearningModel.StudentLevel">
+        <MappingFragment StoreEntitySet="StudentLevel">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SessId" ColumnName="SessId" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudLevelId" ColumnName="StudLevelId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentRegistrationxxes">
+      <EntityTypeMapping TypeName="StudentElearningModel.StudentRegistrationxx">
+        <MappingFragment StoreEntitySet="StudentRegistration">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="StdId" ColumnName="StdId" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="SessId" ColumnName="SessId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentSchoolxxes">
+      <EntityTypeMapping TypeName="StudentElearningModel.StudentSchoolxx">
+        <MappingFragment StoreEntitySet="StudentSchools">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="To" ColumnName="To" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="CGPA" ColumnName="CGPA" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SessionSems">
+      <EntityTypeMapping TypeName="StudentElearningModel.SessionSem">
+        <MappingFragment StoreEntitySet="SessionSem">
+          <ScalarProperty Name="WeekCount" ColumnName="WeekCount" />
+          <ScalarProperty Name="ClosingRemarks" ColumnName="ClosingRemarks" />
+          <ScalarProperty Name="ExtensionDays" ColumnName="ExtensionDays" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="DateClosed" ColumnName="DateClosed" />
+          <ScalarProperty Name="IsOpen" ColumnName="IsOpen" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="SessId" ColumnName="SessId" />
+          <ScalarProperty Name="SemId" ColumnName="SemId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Curricula">
+      <EntityTypeMapping TypeName="StudentElearningModel.Curriculum">
+        <MappingFragment StoreEntitySet="Curriculum">
+          <ScalarProperty Name="PH" ColumnName="PH" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="LH" ColumnName="LH" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="Prequisite" ColumnName="Prequisite" />
+          <ScalarProperty Name="ReqId" ColumnName="ReqId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmissionProcessings">
+      <EntityTypeMapping TypeName="StudentElearningModel.AdmissionProcessing">
+        <MappingFragment StoreEntitySet="AdmissionProcessing">
+          <ScalarProperty Name="PaymentDescription" ColumnName="PaymentDescription" />
+          <ScalarProperty Name="SchoolPayDate" ColumnName="SchoolPayDate" />
+          <ScalarProperty Name="SchoolFeeReference" ColumnName="SchoolFeeReference" />
+          <ScalarProperty Name="HasPaidTution" ColumnName="HasPaidTution" />
+          <ScalarProperty Name="PaymentReference" ColumnName="PaymentReference" />
+          <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+          <ScalarProperty Name="AcceptedOn" ColumnName="AcceptedOn" />
+          <ScalarProperty Name="IsAccepted" ColumnName="IsAccepted" />
+          <ScalarProperty Name="VerifiedBy" ColumnName="VerifiedBy" />
+          <ScalarProperty Name="VerificationDate" ColumnName="VerificationDate" />
+          <ScalarProperty Name="NotificationDate" ColumnName="NotificationDate" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="IsNotified" ColumnName="IsNotified" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="ProcessedBy" ColumnName="ProcessedBy" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="DateProcessed" ColumnName="DateProcessed" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applications">
+      <EntityTypeMapping TypeName="StudentElearningModel.Application">
+        <MappingFragment StoreEntitySet="Application">
+          <ScalarProperty Name="ApplicationDate" ColumnName="ApplicationDate" />
+          <ScalarProperty Name="AdmProgID" ColumnName="AdmProgID" />
+          <ScalarProperty Name="AppId" ColumnName="AppId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicantProgressxxes">
+      <EntityTypeMapping TypeName="StudentElearningModel.ApplicantProgressxx">
+        <MappingFragment StoreEntitySet="ApplicantProgress">
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="AppId" ColumnName="AppId" />
+          <ScalarProperty Name="StepId" ColumnName="StepId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentCategoryxxxes">
+      <EntityTypeMapping TypeName="StudentElearningModel.StudentCategoryxxx">
+        <MappingFragment StoreEntitySet="StudentCategory">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requirements">
+      <EntityTypeMapping TypeName="IsTypeOf(StudentElearningModel.Requirement)">
+        <MappingFragment StoreEntitySet="Requirement">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="IsElective" ColumnName="IsElective" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SemId" ColumnName="SemId" />
+          <ScalarProperty Name="MaxUnit" ColumnName="MaxUnit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(StudentElearningModel.ProgrammeReq)">
+        <MappingFragment StoreEntitySet="ProgrammeReq">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProgId" ColumnName="ProgId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(StudentElearningModel.FacultyReq)">
+        <MappingFragment StoreEntitySet="FacultyReq">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LevId" ColumnName="LevId" />
+          <ScalarProperty Name="FacId" ColumnName="FacId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(StudentElearningModel.SchoolReqxsx)">
+        <MappingFragment StoreEntitySet="SchoolReq">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReqDescription" ColumnName="ReqDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Awardxxes">
+      <EntityTypeMapping TypeName="StudentElearningModel.Awardxx">
+        <MappingFragment StoreEntitySet="Award">
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="SchId" ColumnName="SchId" />
+          <ScalarProperty Name="AwardAcronymns" ColumnName="AwardAcronymns" />
+          <ScalarProperty Name="AwardDescription" ColumnName="AwardDescription" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Coursexxes">
+      <EntityTypeMapping TypeName="StudentElearningModel.Coursexx">
+        <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="deptId" ColumnName="deptId" />
+          <ScalarProperty Name="CourseTitle" ColumnName="CourseTitle" />
+          <ScalarProperty Name="CourseCode" ColumnName="CourseCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departmentxxes">
+      <EntityTypeMapping TypeName="StudentElearningModel.Departmentxx">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+          <ScalarProperty Name="FacId" ColumnName="FacId" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="DeptAcronymns" ColumnName="DeptAcronymns" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stepxxes">
+      <EntityTypeMapping TypeName="StudentElearningModel.Stepxx">
+        <MappingFragment StoreEntitySet="Steps">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facultyxxxes">
+      <EntityTypeMapping TypeName="StudentElearningModel.Facultyxxx">
+        <MappingFragment StoreEntitySet="Faculty">
+          <ScalarProperty Name="SchId" ColumnName="SchId" />
+          <ScalarProperty Name="FacultyAcronymns" ColumnName="FacultyAcronymns" />
+          <ScalarProperty Name="FacultyName" ColumnName="FacultyName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmissionProgrammes">
+      <EntityTypeMapping TypeName="StudentElearningModel.AdmissionProgramme">
+        <MappingFragment StoreEntitySet="AdmissionProgramme">
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="ProgId" ColumnName="ProgId" />
+          <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Programmes">
+      <EntityTypeMapping TypeName="StudentElearningModel.Programme">
+        <MappingFragment StoreEntitySet="Programme">
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="IsFullTime" ColumnName="IsFullTime" />
+          <ScalarProperty Name="AwardId" ColumnName="AwardId" />
+          <ScalarProperty Name="ProgrammeCode" ColumnName="ProgrammeCode" />
+          <ScalarProperty Name="ProgrammeDescription" ColumnName="ProgrammeDescription" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProgrammeLevels">
+      <EntityTypeMapping TypeName="StudentElearningModel.ProgrammeLevel">
+        <MappingFragment StoreEntitySet="ProgrammeLevel">
+          <ScalarProperty Name="ProgId" ColumnName="ProgId" />
+          <ScalarProperty Name="LevId" ColumnName="LevId" />
+          <ScalarProperty Name="ProgLevDescription" ColumnName="ProgLevDescription" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExaminationSubjects">
+      <EntityTypeMapping TypeName="StudentElearningModel.ExaminationSubject">
+        <MappingFragment StoreEntitySet="ExaminationSubject">
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+          <ScalarProperty Name="ExamId" ColumnName="ExamId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employmentxxes">
+      <EntityTypeMapping TypeName="StudentElearningModel.Employmentxx">
+        <MappingFragment StoreEntitySet="Employment">
+          <ScalarProperty Name="DateStamp" ColumnName="DateStamp" />
+          <ScalarProperty Name="AppId" ColumnName="AppId" />
+          <ScalarProperty Name="To" ColumnName="To" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Employer" ColumnName="Employer" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
